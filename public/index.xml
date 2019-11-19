@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tommy Jones</title>
-    <link>https://www.jonesingfordata.com/</link>
-      <atom:link href="https://www.jonesingfordata.com/index.xml" rel="self" type="application/rss+xml" />
+    <link>/</link>
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Tommy Jones</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.jonesingfordata.com/img/icon-192.png</url>
+      <url>/img/icon-192.png</url>
       <title>Tommy Jones</title>
-      <link>https://www.jonesingfordata.com/</link>
+      <link>/</link>
     </image>
     
     <item>
       <title>Example Talk</title>
-      <link>https://www.jonesingfordata.com/talk/example/</link>
+      <link>/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/talk/example/</guid>
+      <guid>/talk/example/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -37,9 +37,9 @@
     
     <item>
       <title>About</title>
-      <link>https://www.jonesingfordata.com/about/</link>
+      <link>/about/</link>
       <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/about/</guid>
+      <guid>/about/</guid>
       <description>&lt;p&gt;My name is Tommy. I&amp;rsquo;m a member of the technical staff at In-Q-Tel and a coordinator for Data Science DC. I have an MS in mathematics and statistics from Georgetown University and a BA in economics from the College of William and Mary. I am also a PhD student in the George Mason University Department of Computational and Data Sciences. I am the author of the textmineR package for the R language. I am also a Marine Corps veteran. Terrible opinions are my own.&lt;/p&gt;
 
 &lt;p&gt;Check out my &lt;a href=&#34;https://github.com/tommyjones&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
@@ -50,17 +50,17 @@
     
     <item>
       <title>A Brief Introduction to Graph Theory</title>
-      <link>https://www.jonesingfordata.com/talk/2019_04_15_dsdc/</link>
+      <link>/talk/2019_04_15_dsdc/</link>
       <pubDate>Mon, 15 Apr 2019 18:30:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/talk/2019_04_15_dsdc/</guid>
+      <guid>/talk/2019_04_15_dsdc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>https://www.jonesingfordata.com/publication/preprint/</link>
+      <link>/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/publication/preprint/</guid>
+      <guid>/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
@@ -73,9 +73,9 @@
     
     <item>
       <title>Slides</title>
-      <link>https://www.jonesingfordata.com/slides/example/</link>
+      <link>/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/slides/example/</guid>
+      <guid>/slides/example/</guid>
       <description>
 
 &lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;
@@ -253,10 +253,19 @@ $$&lt;/p&gt;
     </item>
     
     <item>
+      <title>Terms</title>
+      <link>/terms/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>/terms/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>An example journal article</title>
-      <link>https://www.jonesingfordata.com/publication/journal-article/</link>
+      <link>/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/publication/journal-article/</guid>
+      <guid>/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -275,9 +284,9 @@ $$&lt;/p&gt;
     
     <item>
       <title>An example conference paper</title>
-      <link>https://www.jonesingfordata.com/publication/conference-paper/</link>
+      <link>/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/publication/conference-paper/</guid>
+      <guid>/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -296,25 +305,25 @@ $$&lt;/p&gt;
     
     <item>
       <title>marginal</title>
-      <link>https://www.jonesingfordata.com/project/marginal/</link>
+      <link>/project/marginal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/project/marginal/</guid>
+      <guid>/project/marginal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-squared for Topic Models</title>
-      <link>https://www.jonesingfordata.com/project/rsquared/</link>
+      <link>/project/rsquared/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/project/rsquared/</guid>
+      <guid>/project/rsquared/</guid>
       <description></description>
     </item>
     
     <item>
       <title>textmineR</title>
-      <link>https://www.jonesingfordata.com/project/textminer/</link>
+      <link>/project/textminer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/project/textminer/</guid>
+      <guid>/project/textminer/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tommy Jones</title>
-    <link>https://www.jonesingfordata.com/authors/tommy-jones/</link>
-      <atom:link href="https://www.jonesingfordata.com/authors/tommy-jones/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/tommy-jones/</link>
+      <atom:link href="/authors/tommy-jones/index.xml" rel="self" type="application/rss+xml" />
     <description>Tommy Jones</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright><lastBuildDate>Mon, 15 Apr 2019 18:30:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.jonesingfordata.com/img/icon-192.png</url>
+      <url>/img/icon-192.png</url>
       <title>Tommy Jones</title>
-      <link>https://www.jonesingfordata.com/authors/tommy-jones/</link>
+      <link>/authors/tommy-jones/</link>
     </image>
     
     <item>
       <title>A Brief Introduction to Graph Theory</title>
-      <link>https://www.jonesingfordata.com/talk/2019_04_15_dsdc/</link>
+      <link>/talk/2019_04_15_dsdc/</link>
       <pubDate>Mon, 15 Apr 2019 18:30:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/talk/2019_04_15_dsdc/</guid>
+      <guid>/talk/2019_04_15_dsdc/</guid>
       <description></description>
     </item>
     

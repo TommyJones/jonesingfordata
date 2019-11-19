@@ -2,69 +2,69 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags | Tommy Jones</title>
-    <link>https://www.jonesingfordata.com/tags/</link>
-      <atom:link href="https://www.jonesingfordata.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tags/</link>
+      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.jonesingfordata.com/img/icon-192.png</url>
+      <url>/img/icon-192.png</url>
       <title>Tags</title>
-      <link>https://www.jonesingfordata.com/tags/</link>
+      <link>/tags/</link>
     </image>
     
     <item>
       <title>Source Themes</title>
-      <link>https://www.jonesingfordata.com/tags/source-themes/</link>
+      <link>/tags/source-themes/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/tags/source-themes/</guid>
+      <guid>/tags/source-themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>interpretable ai</title>
-      <link>https://www.jonesingfordata.com/tags/interpretable-ai/</link>
+      <link>/tags/interpretable-ai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/tags/interpretable-ai/</guid>
+      <guid>/tags/interpretable-ai/</guid>
       <description></description>
     </item>
     
     <item>
       <title>latent dirichlet allocation</title>
-      <link>https://www.jonesingfordata.com/tags/latent-dirichlet-allocation/</link>
+      <link>/tags/latent-dirichlet-allocation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/tags/latent-dirichlet-allocation/</guid>
+      <guid>/tags/latent-dirichlet-allocation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>machine learning</title>
-      <link>https://www.jonesingfordata.com/tags/machine-learning/</link>
+      <link>/tags/machine-learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/tags/machine-learning/</guid>
+      <guid>/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://www.jonesingfordata.com/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-squared</title>
-      <link>https://www.jonesingfordata.com/tags/r-squared/</link>
+      <link>/tags/r-squared/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/tags/r-squared/</guid>
+      <guid>/tags/r-squared/</guid>
       <description></description>
     </item>
     
     <item>
       <title>topic model</title>
-      <link>https://www.jonesingfordata.com/tags/topic-model/</link>
+      <link>/tags/topic-model/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/tags/topic-model/</guid>
+      <guid>/tags/topic-model/</guid>
       <description></description>
     </item>
     

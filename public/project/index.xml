@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects | Tommy Jones</title>
-    <link>https://www.jonesingfordata.com/project/</link>
-      <atom:link href="https://www.jonesingfordata.com/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>/project/</link>
+      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright>
     <image>
-      <url>https://www.jonesingfordata.com/img/icon-192.png</url>
+      <url>/img/icon-192.png</url>
       <title>Projects</title>
-      <link>https://www.jonesingfordata.com/project/</link>
+      <link>/project/</link>
     </image>
     
     <item>
       <title>marginal</title>
-      <link>https://www.jonesingfordata.com/project/marginal/</link>
+      <link>/project/marginal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/project/marginal/</guid>
+      <guid>/project/marginal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-squared for Topic Models</title>
-      <link>https://www.jonesingfordata.com/project/rsquared/</link>
+      <link>/project/rsquared/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/project/rsquared/</guid>
+      <guid>/project/rsquared/</guid>
       <description></description>
     </item>
     
     <item>
       <title>textmineR</title>
-      <link>https://www.jonesingfordata.com/project/textminer/</link>
+      <link>/project/textminer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.jonesingfordata.com/project/textminer/</guid>
+      <guid>/project/textminer/</guid>
       <description></description>
     </item>
     

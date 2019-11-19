@@ -3,152 +3,157 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.jonesingfordata.com/talk/example/</loc>
+    <loc>/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/talk/</loc>
+    <loc>/talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/</loc>
+    <loc>/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2019-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/talk/2019_04_15_dsdc/</loc>
+    <loc>/talk/2019_04_15_dsdc/</loc>
     <lastmod>2019-04-15T18:30:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/authors/</loc>
+    <loc>/authors/</loc>
     <lastmod>2019-04-15T18:30:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/authors/tommy-jones/</loc>
+    <loc>/authors/tommy-jones/</loc>
     <lastmod>2019-04-15T18:30:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/authors/admin/</loc>
+    <loc>/authors/admin/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication_types/3/</loc>
+    <loc>/publication_types/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication/preprint/</loc>
+    <loc>/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication_types/</loc>
+    <loc>/publication_types/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication/</loc>
+    <loc>/publication/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/source-themes/</loc>
+    <loc>/tags/source-themes/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/slides/</loc>
+    <loc>/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/slides/example/</loc>
+    <loc>/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication_types/2/</loc>
+    <loc>/terms/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication/journal-article/</loc>
+    <loc>/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/authors/robert-ford/</loc>
+    <loc>/authors/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication_types/1/</loc>
+    <loc>/publication_types/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/publication/conference-paper/</loc>
+    <loc>/publication/conference-paper/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/categories/</loc>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/interpretable-ai/</loc>
+    <loc>/tags/interpretable-ai/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/latent-dirichlet-allocation/</loc>
+    <loc>/tags/latent-dirichlet-allocation/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/machine-learning/</loc>
+    <loc>/tags/machine-learning/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/project/marginal/</loc>
+    <loc>/project/marginal/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/project/</loc>
+    <loc>/project/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/r/</loc>
+    <loc>/tags/r/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/r-squared/</loc>
+    <loc>/tags/r-squared/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/project/rsquared/</loc>
+    <loc>/project/rsquared/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/project/textminer/</loc>
+    <loc>/project/textminer/</loc>
   </url>
   
   <url>
-    <loc>https://www.jonesingfordata.com/tags/topic-model/</loc>
+    <loc>/tags/topic-model/</loc>
   </url>
   
 </urlset>
