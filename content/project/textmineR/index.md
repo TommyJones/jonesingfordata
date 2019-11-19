@@ -8,7 +8,7 @@ tags:
 date: "{year}"
 
 # Optional external URL for project (replaces project detail page).
-external_link: https://rtextminer.org
+external_link: https://www.rtextminer.com
 
 image:
   caption: 
