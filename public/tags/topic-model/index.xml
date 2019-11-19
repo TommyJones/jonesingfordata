@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>topic model | Tommy Jones</title>
-    <link>/tags/topic-model/</link>
-      <atom:link href="/tags/topic-model/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.jonesingfordata.com/tags/topic-model/</link>
+      <atom:link href="https://www.jonesingfordata.com/tags/topic-model/index.xml" rel="self" type="application/rss+xml" />
     <description>topic model</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright>
     <image>
-      <url>/img/icon-192.png</url>
+      <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>topic model</title>
-      <link>/tags/topic-model/</link>
+      <link>https://www.jonesingfordata.com/tags/topic-model/</link>
     </image>
     
     <item>
       <title>R-squared for Topic Models</title>
-      <link>/project/rsquared/</link>
+      <link>https://www.jonesingfordata.com/project/rsquared/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/project/rsquared/</guid>
+      <guid>https://www.jonesingfordata.com/project/rsquared/</guid>
       <description></description>
     </item>
     
     <item>
       <title>textmineR</title>
-      <link>/project/textminer/</link>
+      <link>https://www.jonesingfordata.com/project/textminer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/project/textminer/</guid>
+      <guid>https://www.jonesingfordata.com/project/textminer/</guid>
       <description></description>
     </item>
     

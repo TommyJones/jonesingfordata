@@ -3,22 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.jonesingfordata.com/talk/example/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/talk/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <loc>https://www.jonesingfordata.com/about/</loc>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.jonesingfordata.com/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/about/</loc>
     <lastmod>2019-11-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -29,6 +19,11 @@
   
   <url>
     <loc>https://www.jonesingfordata.com/authors/</loc>
+    <lastmod>2019-04-15T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jonesingfordata.com/talk/</loc>
     <lastmod>2019-04-15T18:30:00+00:00</lastmod>
   </url>
   
@@ -80,6 +75,11 @@
   <url>
     <loc>https://www.jonesingfordata.com/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jonesingfordata.com/talk/2018_11_09_dcr/</loc>
+    <lastmod>2018-11-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>

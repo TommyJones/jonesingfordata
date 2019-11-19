@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Tommy Jones</title>
-    <link>/authors/</link>
-      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.jonesingfordata.com/authors/</link>
+      <atom:link href="https://www.jonesingfordata.com/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright><lastBuildDate>Mon, 15 Apr 2019 18:30:00 +0000</lastBuildDate>
     <image>
-      <url>/img/icon-192.png</url>
+      <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>Authors</title>
-      <link>/authors/</link>
+      <link>https://www.jonesingfordata.com/authors/</link>
     </image>
     
     <item>
       <title>Tommy Jones</title>
-      <link>/authors/tommy-jones/</link>
+      <link>https://www.jonesingfordata.com/authors/tommy-jones/</link>
       <pubDate>Mon, 15 Apr 2019 18:30:00 +0000</pubDate>
-      <guid>/authors/tommy-jones/</guid>
+      <guid>https://www.jonesingfordata.com/authors/tommy-jones/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>/authors/admin/</link>
+      <link>https://www.jonesingfordata.com/authors/admin/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/authors/admin/</guid>
+      <guid>https://www.jonesingfordata.com/authors/admin/</guid>
       <description>&lt;p&gt;My name is Tommy. I&amp;rsquo;m a member of the technical staff at In-Q-Tel and a coordinator for Data Science DC. I have an MS in mathematics and statistics from Georgetown University and a BA in economics from the College of William and Mary. I am also a PhD student in the George Mason University Department of Computational and Data Sciences. I am the author of the &lt;a href=&#34;https://rtextminer.com&#34; target=&#34;_blank&#34;&gt;textmineR&lt;/a&gt; package for the R language. I am also a Marine Corps veteran. My opinions are terrible and they are all my own.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Robert Ford</title>
-      <link>/authors/robert-ford/</link>
+      <link>https://www.jonesingfordata.com/authors/robert-ford/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/authors/robert-ford/</guid>
+      <guid>https://www.jonesingfordata.com/authors/robert-ford/</guid>
       <description></description>
     </item>
     

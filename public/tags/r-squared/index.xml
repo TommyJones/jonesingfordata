@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R-squared | Tommy Jones</title>
-    <link>/tags/r-squared/</link>
-      <atom:link href="/tags/r-squared/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.jonesingfordata.com/tags/r-squared/</link>
+      <atom:link href="https://www.jonesingfordata.com/tags/r-squared/index.xml" rel="self" type="application/rss+xml" />
     <description>R-squared</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright>
     <image>
-      <url>/img/icon-192.png</url>
+      <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>R-squared</title>
-      <link>/tags/r-squared/</link>
+      <link>https://www.jonesingfordata.com/tags/r-squared/</link>
     </image>
     
     <item>
       <title>R-squared for Topic Models</title>
-      <link>/project/rsquared/</link>
+      <link>https://www.jonesingfordata.com/project/rsquared/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/project/rsquared/</guid>
+      <guid>https://www.jonesingfordata.com/project/rsquared/</guid>
       <description></description>
     </item>
     
