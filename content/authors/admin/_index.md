@@ -37,7 +37,7 @@ social:
   link: /contact
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/thosPjones
+  link: https://twitter.com/thos_jones
 - icon: github
   icon_pack: fab
   link: https://github.com/tommyjones
