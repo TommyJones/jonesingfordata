@@ -5,12 +5,20 @@
     <link>https://www.jonesingfordata.com/talk/</link>
       <atom:link href="https://www.jonesingfordata.com/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright><lastBuildDate>Mon, 15 Apr 2019 18:30:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2019</copyright><lastBuildDate>Sat, 09 Nov 2019 10:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>Recent &amp; Upcoming Talks</title>
       <link>https://www.jonesingfordata.com/talk/</link>
     </image>
+    
+    <item>
+      <title>Optimizing Topic Models for Classification Tasks</title>
+      <link>https://www.jonesingfordata.com/talk/2019_11_09_dcr/</link>
+      <pubDate>Sat, 09 Nov 2019 10:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/talk/2019_11_09_dcr/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>A Brief Introduction to Graph Theory</title>
