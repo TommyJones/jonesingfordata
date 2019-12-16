@@ -40,7 +40,7 @@ date_format = "Jan 2006"
   company_url = ""
   location = "McLean, VA"
   date_start = "2015-04-01"
-  date_end = "2017-09-01"
+  date_end = "2015-09-01"
 
 [[experience]]
   title = "Statistician"
