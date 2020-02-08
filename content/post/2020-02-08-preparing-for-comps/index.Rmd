@@ -1,0 +1,47 @@
+---
+title: "Blogging my way through the rest of my PhD"
+author: "Tommy Jones"
+date: "2020-02-08"
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: "`r format(Sys.time(), '%Y-%m-%d')`"
+featured: no
+disable_jquery: no
+image: []
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+I've reached a turning point in my PhD studies. 
+Classes are behind me and what lies ahead is largely unstructured. Success or failure will largely be a function of whether or not (and how well) I pull myself together. 
+
+The next steps are:
+
+1. Pass comprehensive exams AKA "comps" (scheduled for early April 2020)
+2. Propose and defend a dissertation topic (which must be completed by spring of 2021)
+3. Write and defend the dissertation itself
+
+Everyone knows that dissertation research is unstructured. 
+The lack of structure is &mdash from what I can tell &mdash a large source of struggle for PhD students. 
+(Another, unfortunately, is lack of support from their advisors and program. 
+Thankfully, I've been blessed with an amazing mentor and advisor in [Bill Kennedy](https://cos.gmu.edu/cds/faculty-profile-william-kennedy/.)
+
+Yet in my program &mdash [Computational Sciences and Informatics (CSI) at George Mason University](https://cos.gmu.edu/cds/phd-in-computational-sciences-and-informatics/) &mdash even comps are unstructured.
+The program of study is largely a "choose your own adventure" degree. 
+As a result, there is no set exam that every student takes. Instead you form a committee as you finish classes and then more-or-less negotiate the subjects of your exam with your committee members. 
+There is some structure, but the content itself is bespoke based on courses you've taken and your intended dissertation focus.
+
+I have been taught (and reinforced by experience) that you don't just write to explain; you write to understand.
+To that end, I intend to start blogging again, but this time with focus.
+My goal is to blog about what I'm studying for comps, what I'm reading related to my research, and what I'm thinking about.
+(That last bit is to help articulate and codify some of the ideas knocking around in my head.)
+
+```{r out.width = "50%", fig.link="https://media.giphy.com/media/WOYKaXG2xJsBO/giphy.gif"}
+knitr::include_graphics("https://media.giphy.com/media/WOYKaXG2xJsBO/giphy.gif")
+```
