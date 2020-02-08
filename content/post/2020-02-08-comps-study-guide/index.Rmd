@@ -26,8 +26,8 @@ I'll update it as I get more clarification etc.
 The basic structure of the exam is as follows: 
 
 There is a one-day (up to six-hour) written exam taken in-person at the university and proctored by one committee member. 
-The results are classified as "Pass", "Fail", or "Oral Exam Needed".  
-The latter is used if I to clarify or expand on my written answer.
+The results are classified as "Pass", "Fail", or "Oral Exam Needed".
+The latter is used if I need to clarify or expand on my written answer.
 The exam questions are submitted by 3 of my 5 committee members. 
 The questions are designed to track courses that I took as part of my degree "concentration" courses.
 
