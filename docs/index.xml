@@ -58,8 +58,8 @@ I’m going to use this post as a high-level study guide to keep me on track.
 I’ll update it as I get more clarification etc.&lt;/p&gt;
 &lt;p&gt;The basic structure of the exam is as follows:&lt;/p&gt;
 &lt;p&gt;There is a one-day (up to six-hour) written exam taken in-person at the university and proctored by one committee member.
-The results are classified as “Pass”, “Fail”, or “Oral Exam Needed”.&lt;br /&gt;
-The latter is used if I to clarify or expand on my written answer.
+The results are classified as “Pass”, “Fail”, or “Oral Exam Needed”.
+The latter is used if I need to clarify or expand on my written answer.
 The exam questions are submitted by 3 of my 5 committee members.
 The questions are designed to track courses that I took as part of my degree “concentration” courses.&lt;/p&gt;
 &lt;p&gt;After the written portion, there is a computational exam which I will have two weeks to complete.
@@ -114,7 +114,6 @@ I’m planning to (a) implement a NUTS sampler for LDA as a derivative of MH sam
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/~hastie/Papers/ESLII.pdf&#34;&gt;The Elements of Statistical Learning&lt;/a&gt; by Hastie et al.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www-users.cs.umn.edu/~kumar001/dmbook/index.php&#34;&gt;Introduction to Data Mining&lt;/a&gt; by Tan et al.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf&#34;&gt;Pattern Recognition and Machine Learning&lt;/a&gt; by Bishop&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The topics I’ll be focusing on are&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
@@ -448,6 +447,14 @@ $$&lt;/p&gt;
     </item>
     
     <item>
+      <title>mvrsquared</title>
+      <link>https://www.jonesingfordata.com/project/mvrsquared/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/project/mvrsquared/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R-squared for Topic Models</title>
       <link>https://www.jonesingfordata.com/project/rsquared/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -460,6 +467,14 @@ $$&lt;/p&gt;
       <link>https://www.jonesingfordata.com/project/textminer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.jonesingfordata.com/project/textminer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidylda</title>
+      <link>https://www.jonesingfordata.com/project/tidylda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/project/tidylda/</guid>
       <description></description>
     </item>
     

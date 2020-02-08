@@ -1,13 +1,13 @@
 ---
-title: tidylda
-summary: R package for Latent Dirichlet Allocation using ‘tidyverse’ conventions plus some of my own special stuff
+title: mvrsquared
+summary: R package implementing multivariate R-squared for topic models and other multivariate outcome models
 tags:
 - R
 - machine learning
 date: "{year}"
 
 # Optional external URL for project (replaces project detail page).
-external_link: https://github.com/TommyJones/tidylda
+external_link: https://github.com/TommyJones/mvrsquared
 
 image:
   caption: 
