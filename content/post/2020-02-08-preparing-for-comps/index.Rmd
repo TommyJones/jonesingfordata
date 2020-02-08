@@ -10,7 +10,6 @@ authors: []
 lastmod: "`r format(Sys.time(), '%Y-%m-%d')`"
 featured: no
 disable_jquery: no
-image: []
 projects: []
 ---
 
