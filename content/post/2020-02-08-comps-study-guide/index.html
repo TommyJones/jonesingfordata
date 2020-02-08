@@ -1,0 +1,110 @@
+---
+title: "Comprehensive exam study guide"
+author: "Tommy Jones"
+date: "2020-02-08"
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: "2020-02-08"
+featured: no
+disable_jquery: no
+projects: []
+---
+
+
+
+<p>This post is going to make a boring read.</p>
+<p>As I explained <a href="https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/">in my last post</a>, my program’s comprehensive exams are bespoke for the student.
+I’m going to use this post as a high-level study guide to keep me on track.
+I’ll update it as I get more clarification etc.</p>
+<p>The basic structure of the exam is as follows:</p>
+<p>There is a one-day (up to six-hour) written exam taken in-person at the university and proctored by one committee member.
+The results are classified as “Pass”, “Fail”, or “Oral Exam Needed”.<br />
+The latter is used if I to clarify or expand on my written answer.
+The exam questions are submitted by 3 of my 5 committee members.
+The questions are designed to track courses that I took as part of my degree “concentration” courses.</p>
+<p>After the written portion, there is a computational exam which I will have two weeks to complete.
+Two of my committee members are taking on putting together this portion of the exam.</p>
+<p>Finally, I will convene in-person with my committee and (a) present on the results of the computational portion of the exam and (b) undergo any oral examination needed from the answers to my written questions.</p>
+<p>As a personal aside/musing: looking at what I’m being tested on, it feels like my degree concentration is more “machine learning” than “computational statistics”. Though, TBH these days, I feel like that’s more of a cultural statement than a mathematical one. I still self identify as a statistician and regularly attend JSM. ¯\<em>(ツ)</em>/¯</p>
+<div id="the-written-portion" class="section level2">
+<h2>The written portion</h2>
+<p>The courses we chose to base the written portion of the exam were</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://seor.vse.gmu.edu/~klaskey/SYST664/SYST664.html">Bayesian Inference and Decision Theory</a> which I actually took at <a href="https://myaccess.georgetown.edu/pls/bninbp/bwckctlg.p_disp_course_detail?cat_term_in=201810&amp;subj_code_in=MATH&amp;crse_numb_in=640">Georgetown</a> through <a href="https://www.consortium.org/">the Consortium of Universities in the Washington Metropolitan Area</a>, which lets me take comparable courses at any university with less buraucracy than using transfer credits.</li>
+<li><a href="https://patriotweb.gmu.edu:9977/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=201670&amp;subj_code_in=CSI&amp;crse_numb_in=777">Principles of Knowledge Mining</a> which is really a machine learning course but focused on data mining</li>
+<li><a href="http://math.gmu.edu/syllabi/F17/689-001-Griva.pdf">Computational Learning and Discovery</a> which is also a machine learning course but focused more on the mathematics of the various methods</li>
+</ol>
+<p>Since Principles of Knowledge Mining and Computational Learning and Discovery had significant overlap in material we decided to split the exam based on supervised learning and unsupervised learning, without distinction of which course it came from.</p>
+<div id="baysian-stats" class="section level3">
+<h3>Baysian stats</h3>
+<p>Technically, my main study resource for this will be the notes, homework, and exams from my Bayesian stats class. (This is an advantage of having the instructor for the course on your committee.) However, two books that I may use as additional reference are</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://www.stat.columbia.edu/~gelman/book/">Bayesian Data Analysis</a> by Gelman et al.</li>
+<li><a href="https://link.springer.com/book/10.1007/978-0-387-92407-6">A First Course in Bayesian Statistical Methods</a> by Hoff</li>
+</ol>
+<p>And I’ve been told that everything in the course is fair game. That said, I’m going to focus on the areas that feel the most rusty to me, namely</p>
+<ol style="list-style-type: decimal">
+<li>Metropolis Hastings (this still seems like magic to me)</li>
+<li>Model checking and evaluation</li>
+<li>Baysian regression - linear and ridge regression</li>
+<li>The Dirichlet multinomial</li>
+<li>The Dirichlet multinomial with a hierarchical uniform prior</li>
+</ol>
+<p>WRT that last two, I definitely know they’re going to come into play during my dissertation itself.
+I’m planning to (a) implement a NUTS sampler for LDA as a derivative of MH sampler in the WarpLDA algorithm and (b) would like to implement an LDA derivative that puts a hierarchical uniform prior on <span class="math inline">\(\boldsymbol\alpha\)</span>.</p>
+</div>
+<div id="supervised-learning" class="section level3">
+<h3>Supervised learning</h3>
+<p>This section is still a bit “TBD” but what I know for sure follows:</p>
+<p>The books I’m using here are</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://web.stanford.edu/~hastie/Papers/ESLII.pdf">The Elements of Statistical Learning</a> by Hastie et al.</li>
+<li>TBD likely either Tan et al. (see below) or <a href="https://www.cs.waikato.ac.nz/ml/weka/book.html">Data Mining</a> by Witten et al.</li>
+<li>I likely won’t be using <a href="https://www.deeplearningbook.org/">Deep Learning</a> by Goodfellow et al. but in case someone comes across this page as a resource to study ML themselves, I feel I’d be remiss not to mention it. This is an excellent book for those of us with a more mathematical bent.</li>
+</ol>
+<p>The topics I’ll be focusing on are</p>
+<ol style="list-style-type: decimal">
+<li>SVMs from Hastie et. al (Ch. 12)</li>
+<li>TBD</li>
+</ol>
+</div>
+<div id="unsupervised-learning" class="section level3">
+<h3>Unsupervised learning</h3>
+<p>The books I’m using here are</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://web.stanford.edu/~hastie/Papers/ESLII.pdf">The Elements of Statistical Learning</a> by Hastie et al.</li>
+<li><a href="https://www-users.cs.umn.edu/~kumar001/dmbook/index.php">Introduction to Data Mining</a> by Tan et al.</li>
+<li><a href="http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf">Pattern Recognition and Machine Learning</a> by Bishop</li>
+</ol>
+<p>The topics I’ll be focusing on are</p>
+<ol style="list-style-type: decimal">
+<li>Clustering from Hastie et al. (Ch. 14, specifically section 14.3)</li>
+<li>Clustering from Tan et al. (Ch. 8 - 9 in 1st ed. TBD on whether or not I do 1st or 2nd ed.)</li>
+<li>Anomaly detection from Tan et al. (Ch. 10 in 1st ed.)</li>
+</ol>
+</div>
+<div id="other-topics-in-machine-learning" class="section level3">
+<h3>Other topics in machine learning</h3>
+<p>Ohter topics will be overfitting, generalization, bias/variance tradeoff and model selection.
+For this I will be focusing on the introductory chapters of <a href="http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf">Pattern Recognition and Machine Learning</a> by Bishop and <a href="https://web.stanford.edu/~hastie/Papers/ESLII.pdf">The Elements of Statistical Learning</a> by Hastie et al..</p>
+</div>
+</div>
+<div id="the-computational-portion" class="section level2">
+<h2>The computational portion</h2>
+<p>I don’t really need to “study” for the computation portion.
+From discussions, what we are going to do is do some flag planting for a paper that I intend to write as part of the dissertation.
+I’ve implemented a couple forms of transfer learning for LDA (or an LDA-like model) in a <a href="https://github.com/tommyjones/tidylda">new R package I’m working on</a>.
+So we’d be looking at a preliminary study of that.
+Thing is, we don’t know how permanant/forgetful LDA is in this paradigm.
+And I don’t know that the way I implemented it is optimal.
+Topics to consider might be</p>
+<ol style="list-style-type: decimal">
+<li>Weighting/reweighting of the previous model’s topics in the prior of a new model.
+This tunes how much the new model “remembers” the old model.</li>
+<li>Initialization strategies.
+Algorithms for LDA shuffle around counts of document-token-topic assignments. If you want to “transfer” you should initialize your counts in proportion to that of the previously-trained model. Unfortunately, corpora don’t have the same number of tokens overall or per-document. So, how do you initialize those counts then? (FWIW, I am not convinced that the current way I did it in my in-development R package is the best strategy.)</li>
+</ol>
+</div>

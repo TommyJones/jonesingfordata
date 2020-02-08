@@ -1,0 +1,118 @@
+---
+title: "Comprehensive exam study guide"
+author: "Tommy Jones"
+date: "2020-02-08"
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: "`r format(Sys.time(), '%Y-%m-%d')`"
+featured: no
+disable_jquery: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This post is going to make a boring read. 
+
+As I explained [in my last post](https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/), my program's comprehensive exams are bespoke for the student. 
+I'm going to use this post as a high-level study guide to keep me on track. 
+I'll update it as I get more clarification etc.
+
+The basic structure of the exam is as follows: 
+
+There is a one-day (up to six-hour) written exam taken in-person at the university and proctored by one committee member. 
+The results are classified as "Pass", "Fail", or "Oral Exam Needed".  
+The latter is used if I to clarify or expand on my written answer.
+The exam questions are submitted by 3 of my 5 committee members. 
+The questions are designed to track courses that I took as part of my degree "concentration" courses.
+
+After the written portion, there is a computational exam which I will have two weeks to complete. 
+Two of my committee members are taking on putting together this portion of the exam.
+
+Finally, I will convene in-person with my committee and (a) present on the results of the computational portion of the exam and (b) undergo any oral examination needed from the answers to my written questions.
+
+As a personal aside/musing: looking at what I'm being tested on, it feels like my degree concentration is more "machine learning" than "computational statistics". Though, TBH these days, I feel like that's more of a cultural statement than a mathematical one. I still self identify as a statistician and regularly attend JSM.  ¯\\_(ツ)_/¯ 
+
+## The written portion
+
+The courses we chose to base the written portion of the exam were
+
+1. [Bayesian Inference and Decision Theory](http://seor.vse.gmu.edu/~klaskey/SYST664/SYST664.html) which I actually took at [Georgetown](https://myaccess.georgetown.edu/pls/bninbp/bwckctlg.p_disp_course_detail?cat_term_in=201810&subj_code_in=MATH&crse_numb_in=640) through [the Consortium of Universities in the Washington Metropolitan Area](https://www.consortium.org/), which lets me take comparable courses at any university with less buraucracy than using transfer credits.
+2. [Principles of Knowledge Mining](https://patriotweb.gmu.edu:9977/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=201670&subj_code_in=CSI&crse_numb_in=777) which is really a machine learning course but focused on data mining
+3. [Computational Learning and Discovery](http://math.gmu.edu/syllabi/F17/689-001-Griva.pdf) which is also a machine learning course but focused more on the mathematics of the various methods
+
+Since Principles of Knowledge Mining and Computational Learning and Discovery had significant overlap in material we decided to split the exam based on supervised learning and unsupervised learning, without distinction of which course it came from.
+
+### Baysian stats
+
+Technically, my main study resource for this will be the notes, homework, and exams from my Bayesian stats class. (This is an advantage of having the instructor for the course on your committee.) However, two books that I may use as additional reference are
+
+1. [Bayesian Data Analysis](http://www.stat.columbia.edu/~gelman/book/) by Gelman et al.
+2. [A First Course in Bayesian Statistical Methods](https://link.springer.com/book/10.1007/978-0-387-92407-6) by Hoff
+
+And I've been told that everything in the course is fair game. That said, I'm going to focus on the areas that feel the most rusty to me, namely
+
+1. Metropolis Hastings (this still seems like magic to me)
+2. Model checking and evaluation
+3. Baysian regression - linear and ridge regression
+4. The Dirichlet multinomial
+5. The Dirichlet multinomial with a hierarchical uniform prior
+
+WRT that last two, I definitely know they're going to come into play during my dissertation itself.
+I'm planning to (a) implement a NUTS sampler for LDA as a derivative of MH sampler in the WarpLDA algorithm and (b) would like to implement an LDA derivative that puts a hierarchical uniform prior on $\boldsymbol\alpha$.
+
+### Supervised learning
+
+This section is still a bit "TBD" but what I know for sure follows:
+
+The books I'm using here are
+
+1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/Papers/ESLII.pdf) by Hastie et al.
+2. TBD likely either Tan et al. (see below) or [Data Mining](https://www.cs.waikato.ac.nz/ml/weka/book.html) by Witten et al.
+3. I likely won't be using [Deep Learning](https://www.deeplearningbook.org/) by Goodfellow et al. but in case someone comes across this page as a resource to study ML themselves, I feel I'd be remiss not to mention it. This is an excellent book for those of us with a more mathematical bent.
+
+The topics I'll be focusing on are
+
+1. SVMs from Hastie et. al (Ch. 12)
+2. TBD
+
+### Unsupervised learning
+
+The books I'm using here are
+
+1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/Papers/ESLII.pdf) by Hastie et al.
+2. [Introduction to Data Mining](https://www-users.cs.umn.edu/~kumar001/dmbook/index.php) by Tan et al.
+3. [Pattern Recognition and Machine Learning](http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf) by Bishop
+
+The topics I'll be focusing on are 
+
+1. Clustering from Hastie et al. (Ch. 14, specifically section 14.3)
+2. Clustering from Tan et al. (Ch. 8 - 9 in 1st ed. TBD on whether or not I do 1st or 2nd ed.)
+3. Anomaly detection from Tan et al. (Ch. 10 in 1st ed.)
+
+### Other topics in machine learning
+
+Ohter topics will be overfitting, generalization, bias/variance tradeoff and model selection.
+For this I will be focusing on the introductory chapters of [Pattern Recognition and Machine Learning](http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf) by Bishop and [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/Papers/ESLII.pdf) by Hastie et al..
+
+
+## The computational portion
+
+I don't really need to "study" for the computation portion. 
+From discussions, what we are going to do is do some flag planting for a paper that I intend to write as part of the dissertation.
+I've implemented a couple forms of transfer learning for LDA (or an LDA-like model) in a [new R package I'm working on](https://github.com/tommyjones/tidylda).
+So we'd be looking at a preliminary study of that. 
+Thing is, we don't know how permanant/forgetful LDA is in this paradigm.
+And I don't know that the way I implemented it is optimal.
+Topics to consider might be
+
+1. Weighting/reweighting of the previous model's topics in the prior of a new model. 
+   This tunes how much the new model "remembers" the old model.
+2. Initialization strategies. 
+   Algorithms for LDA shuffle around counts of document-token-topic assignments. If you want to "transfer" you should initialize your counts in proportion to that of the previously-trained model. Unfortunately, corpora don't have the same number of tokens overall or per-document. So, how do you initialize those counts then? (FWIW, I am not convinced that the current way I did it in my in-development R package is the best strategy.)
+

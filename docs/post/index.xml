@@ -44,5 +44,109 @@ My goal is to blog about what I’m studying for comps, what I’m reading relat
 </description>
     </item>
     
+    <item>
+      <title>Comprehensive exam study guide</title>
+      <link>https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/</guid>
+      <description>
+
+
+&lt;p&gt;This post is going to make a boring read.&lt;/p&gt;
+&lt;p&gt;As I explained &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/&#34;&gt;in my last post&lt;/a&gt;, my program’s comprehensive exams are bespoke for the student.
+I’m going to use this post as a high-level study guide to keep me on track.
+I’ll update it as I get more clarification etc.&lt;/p&gt;
+&lt;p&gt;The basic structure of the exam is as follows:&lt;/p&gt;
+&lt;p&gt;There is a one-day (up to six-hour) written exam taken in-person at the university and proctored by one committee member.
+The results are classified as “Pass”, “Fail”, or “Oral Exam Needed”.&lt;br /&gt;
+The latter is used if I to clarify or expand on my written answer.
+The exam questions are submitted by 3 of my 5 committee members.
+The questions are designed to track courses that I took as part of my degree “concentration” courses.&lt;/p&gt;
+&lt;p&gt;After the written portion, there is a computational exam which I will have two weeks to complete.
+Two of my committee members are taking on putting together this portion of the exam.&lt;/p&gt;
+&lt;p&gt;Finally, I will convene in-person with my committee and (a) present on the results of the computational portion of the exam and (b) undergo any oral examination needed from the answers to my written questions.&lt;/p&gt;
+&lt;p&gt;As a personal aside/musing: looking at what I’m being tested on, it feels like my degree concentration is more “machine learning” than “computational statistics”. Though, TBH these days, I feel like that’s more of a cultural statement than a mathematical one. I still self identify as a statistician and regularly attend JSM. ¯\&lt;em&gt;(ツ)&lt;/em&gt;/¯&lt;/p&gt;
+&lt;div id=&#34;the-written-portion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The written portion&lt;/h2&gt;
+&lt;p&gt;The courses we chose to base the written portion of the exam were&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;http://seor.vse.gmu.edu/~klaskey/SYST664/SYST664.html&#34;&gt;Bayesian Inference and Decision Theory&lt;/a&gt; which I actually took at &lt;a href=&#34;https://myaccess.georgetown.edu/pls/bninbp/bwckctlg.p_disp_course_detail?cat_term_in=201810&amp;amp;subj_code_in=MATH&amp;amp;crse_numb_in=640&#34;&gt;Georgetown&lt;/a&gt; through &lt;a href=&#34;https://www.consortium.org/&#34;&gt;the Consortium of Universities in the Washington Metropolitan Area&lt;/a&gt;, which lets me take comparable courses at any university with less buraucracy than using transfer credits.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://patriotweb.gmu.edu:9977/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=201670&amp;amp;subj_code_in=CSI&amp;amp;crse_numb_in=777&#34;&gt;Principles of Knowledge Mining&lt;/a&gt; which is really a machine learning course but focused on data mining&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://math.gmu.edu/syllabi/F17/689-001-Griva.pdf&#34;&gt;Computational Learning and Discovery&lt;/a&gt; which is also a machine learning course but focused more on the mathematics of the various methods&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Since Principles of Knowledge Mining and Computational Learning and Discovery had significant overlap in material we decided to split the exam based on supervised learning and unsupervised learning, without distinction of which course it came from.&lt;/p&gt;
+&lt;div id=&#34;baysian-stats&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Baysian stats&lt;/h3&gt;
+&lt;p&gt;Technically, my main study resource for this will be the notes, homework, and exams from my Bayesian stats class. (This is an advantage of having the instructor for the course on your committee.) However, two books that I may use as additional reference are&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.stat.columbia.edu/~gelman/book/&#34;&gt;Bayesian Data Analysis&lt;/a&gt; by Gelman et al.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://link.springer.com/book/10.1007/978-0-387-92407-6&#34;&gt;A First Course in Bayesian Statistical Methods&lt;/a&gt; by Hoff&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And I’ve been told that everything in the course is fair game. That said, I’m going to focus on the areas that feel the most rusty to me, namely&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Metropolis Hastings (this still seems like magic to me)&lt;/li&gt;
+&lt;li&gt;Model checking and evaluation&lt;/li&gt;
+&lt;li&gt;Baysian regression - linear and ridge regression&lt;/li&gt;
+&lt;li&gt;The Dirichlet multinomial&lt;/li&gt;
+&lt;li&gt;The Dirichlet multinomial with a hierarchical uniform prior&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;WRT that last two, I definitely know they’re going to come into play during my dissertation itself.
+I’m planning to (a) implement a NUTS sampler for LDA as a derivative of MH sampler in the WarpLDA algorithm and (b) would like to implement an LDA derivative that puts a hierarchical uniform prior on &lt;span class=&#34;math inline&#34;&gt;\(\boldsymbol\alpha\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;supervised-learning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Supervised learning&lt;/h3&gt;
+&lt;p&gt;This section is still a bit “TBD” but what I know for sure follows:&lt;/p&gt;
+&lt;p&gt;The books I’m using here are&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/~hastie/Papers/ESLII.pdf&#34;&gt;The Elements of Statistical Learning&lt;/a&gt; by Hastie et al.&lt;/li&gt;
+&lt;li&gt;TBD likely either Tan et al. (see below) or &lt;a href=&#34;https://www.cs.waikato.ac.nz/ml/weka/book.html&#34;&gt;Data Mining&lt;/a&gt; by Witten et al.&lt;/li&gt;
+&lt;li&gt;I likely won’t be using &lt;a href=&#34;https://www.deeplearningbook.org/&#34;&gt;Deep Learning&lt;/a&gt; by Goodfellow et al. but in case someone comes across this page as a resource to study ML themselves, I feel I’d be remiss not to mention it. This is an excellent book for those of us with a more mathematical bent.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The topics I’ll be focusing on are&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;SVMs from Hastie et. al (Ch. 12)&lt;/li&gt;
+&lt;li&gt;TBD&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;unsupervised-learning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Unsupervised learning&lt;/h3&gt;
+&lt;p&gt;The books I’m using here are&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/~hastie/Papers/ESLII.pdf&#34;&gt;The Elements of Statistical Learning&lt;/a&gt; by Hastie et al.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www-users.cs.umn.edu/~kumar001/dmbook/index.php&#34;&gt;Introduction to Data Mining&lt;/a&gt; by Tan et al.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf&#34;&gt;Pattern Recognition and Machine Learning&lt;/a&gt; by Bishop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The topics I’ll be focusing on are&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Clustering from Hastie et al. (Ch. 14, specifically section 14.3)&lt;/li&gt;
+&lt;li&gt;Clustering from Tan et al. (Ch. 8 - 9 in 1st ed. TBD on whether or not I do 1st or 2nd ed.)&lt;/li&gt;
+&lt;li&gt;Anomaly detection from Tan et al. (Ch. 10 in 1st ed.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-topics-in-machine-learning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Other topics in machine learning&lt;/h3&gt;
+&lt;p&gt;Ohter topics will be overfitting, generalization, bias/variance tradeoff and model selection.
+For this I will be focusing on the introductory chapters of &lt;a href=&#34;http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf&#34;&gt;Pattern Recognition and Machine Learning&lt;/a&gt; by Bishop and &lt;a href=&#34;https://web.stanford.edu/~hastie/Papers/ESLII.pdf&#34;&gt;The Elements of Statistical Learning&lt;/a&gt; by Hastie et al..&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-computational-portion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The computational portion&lt;/h2&gt;
+&lt;p&gt;I don’t really need to “study” for the computation portion.
+From discussions, what we are going to do is do some flag planting for a paper that I intend to write as part of the dissertation.
+I’ve implemented a couple forms of transfer learning for LDA (or an LDA-like model) in a &lt;a href=&#34;https://github.com/tommyjones/tidylda&#34;&gt;new R package I’m working on&lt;/a&gt;.
+So we’d be looking at a preliminary study of that.
+Thing is, we don’t know how permanant/forgetful LDA is in this paradigm.
+And I don’t know that the way I implemented it is optimal.
+Topics to consider might be&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Weighting/reweighting of the previous model’s topics in the prior of a new model.
+This tunes how much the new model “remembers” the old model.&lt;/li&gt;
+&lt;li&gt;Initialization strategies.
+Algorithms for LDA shuffle around counts of document-token-topic assignments. If you want to “transfer” you should initialize your counts in proportion to that of the previously-trained model. Unfortunately, corpora don’t have the same number of tokens overall or per-document. So, how do you initialize those counts then? (FWIW, I am not convinced that the current way I did it in my in-development R package is the best strategy.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
