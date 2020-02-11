@@ -34,6 +34,11 @@ I've found that many academics in CS seem infatuated with SVMs and I've struggle
 Thankfully, Twitter was there for me when I needed it most.
 Apparently, the answer is "kernel methods plus the math is nice".
 
+A warning for anyone reading this blog post: it's probably terrible. :)
+The introduction is probably a good way to think of SVMs.
+Beyond that, I admit I dive into a lot of detail to help *me* work through it.
+But I'm not sure that it's any more useful than just getting your own copy of The Elements of Statistical Learning.
+
 ## Introduction
 
 SVMs are one method to make a linear decision boundary for classification.
