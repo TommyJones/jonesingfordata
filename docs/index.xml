@@ -5,12 +5,207 @@
     <link>https://www.jonesingfordata.com/</link>
       <atom:link href="https://www.jonesingfordata.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Tommy Jones</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>Tommy Jones</title>
       <link>https://www.jonesingfordata.com/</link>
     </image>
+    
+    <item>
+      <title>Support Vector Machines in Hastie et al.</title>
+      <link>https://www.jonesingfordata.com/post/2020-02-09-review-of-svm-hastie/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/post/2020-02-09-review-of-svm-hastie/</guid>
+      <description>
+
+
+&lt;p&gt;In my effort to &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/&#34;&gt;blog my way through the rest of my PhD&lt;/a&gt; and &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/&#34;&gt;study for comps&lt;/a&gt;, I present to you support vector machines.&lt;/p&gt;
+&lt;p&gt;When we covered SVMs in my ML class a couple years ago, we focused on computational methods rather than the math.
+The focus for comps is more-or-less the opposite so we’re going with chapter 12 of &lt;a href=&#34;https://web.stanford.edu/~hastie/Papers/ESLII.pdf&#34;&gt;The Elements of Statistical Learning&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I’ve found that many academics in CS seem infatuated with SVMs and I’ve struggled to understand why.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;
+&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;
+Can anyone explain to me why a great many academic CS folks really really like SVMs?
+&lt;/p&gt;
+— Tommy Jones (&lt;span class=&#34;citation&#34;&gt;@thos_jones&lt;/span&gt;) &lt;a href=&#34;https://twitter.com/thos_jones/status/1226581814959099905?ref_src=twsrc%5Etfw&#34;&gt;February 9, 2020&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Thankfully, Twitter was there for me when I needed it most.
+Apparently, the answer is “kernel methods plus the math is nice”.&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;SVMs are one method to make a linear decision boundary for classification.
+I hear you say “not all decision boundaries are linear”.
+Well, dear reader, SVMs have an answer for you; read on.&lt;/p&gt;
+&lt;p&gt;There are two components to SVMs.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The support vector classifier and&lt;/li&gt;
+&lt;li&gt;Kernel methods&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The support vector classifier is what creates a linear boundary between classes.
+(Or it creates a best guess at a linear boundary in the case of overlapping classes.)
+I describe it in detail below.&lt;/p&gt;
+&lt;p&gt;Kernel methods are the solution to the fact that not all data are linear.
+Basically, a “kernel method” is a projection from one space to another.
+The hope (plan? theory?) is that this new space will lead to a linear separation between classes.
+In many (most?) cases, the new space will be of higher dimension.
+This can give us two things:
+First, as already stated, non-linear can become linear.
+Second, when classes are overlapping, a higher dimension can give them more separability.
+In the latter case, this could result in overfitting.
+However, stick with me, dear reader, and we will see how SVMs address this issue.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-support-vector-classifier&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The Support Vector Classifier&lt;/h2&gt;
+&lt;p&gt;Remember this:
+&lt;em&gt;The support vector classifier finds the linear hyperplane that separates classes with the maximum margin.&lt;/em&gt;
+The image at the top shows this margin in the case of separable classes (left) and overlapping classes (right).&lt;/p&gt;
+&lt;p&gt;Some definitions you’ll need to follow the math are:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  \text{outcomes: } &amp;amp; \{y: y_i \in \{-1,1\}\}\\
+  \text{features: } &amp;amp; \{x: x_i \in \mathbb{R}^p\}\\
+  \text{hyperplane: } &amp;amp; \{x: f(x) = x^T\beta + \beta_0\}\\
+  \text{classification rule: } &amp;amp; G(x) = \text{sign}(x^T\beta + \beta_0)\\
+  \text{margin: } &amp;amp; M = \frac{1}{\lVert\beta\rVert}
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Note that &lt;span class=&#34;math inline&#34;&gt;\(\lVert \beta \rVert = 1\)&lt;/span&gt;, meaning that &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; is a unit vector.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now we have two optimization problems to consider:
+In the trivial case, the &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; are separable by class, &lt;span class=&#34;math inline&#34;&gt;\(y_i\)&lt;/span&gt;.
+So then it’s just an issue of finding the “right” hyperplane.
+In the more realistic case, the &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; are not completely separated by class.
+This is a more difficult problem and requires a fancier solution.&lt;/p&gt;
+&lt;div id=&#34;separable-classes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Separable classes&lt;/h3&gt;
+&lt;p&gt;For the separable case, we have a basic optimization problem:&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(\max_{\beta,\beta_0,\lVert\beta\rVert}M\)&lt;/span&gt; subject to &lt;span class=&#34;math inline&#34;&gt;\(y_i \cdot (x_i^T\beta + \beta_0) \geq M\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;According to Hastie et al. this can be rephrased and more easily solved by&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(\min_{\beta,\beta_0}\lVert\beta\rVert\)&lt;/span&gt; subject to &lt;span class=&#34;math inline&#34;&gt;\(y_i\cdot(x^T\beta + \beta_0) \ge 1\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;div id=&#34;a-total-aside-that-links-this-back-to-calculus&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;A total aside that links this back to calculus&lt;/h4&gt;
+&lt;p&gt;You might not be able to solve this analytically, but if I recall my calculus, you’d solve&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(\min_{\beta,\beta_0} \lVert\beta\rVert + \lambda(y_i\cdot(x^T\beta + \beta_0) - 1 - s^2)\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;Where &lt;span class=&#34;math inline&#34;&gt;\(s^2\)&lt;/span&gt; is a variable introduced to handle inequalities a-la &lt;a href=&#34;http://users.wpi.edu/~pwdavis/Courses/MA1024B10/1024_Lagrange_multipliers.pdf&#34;&gt;here&lt;/a&gt;.
+And &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; is a Lagrange multiplier.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;non-separable-classes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Non-separable classes&lt;/h3&gt;
+&lt;p&gt;When the classes aren’t separable, we have to introduce a new variable, called a “slack variable” &lt;span class=&#34;math inline&#34;&gt;\(\xi\)&lt;/span&gt;.
+(If—like me—you have trouble pronouncing &lt;span class=&#34;math inline&#34;&gt;\(\xi\)&lt;/span&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Xi_(letter)&#34;&gt;it’s pronounced like “sigh”&lt;/a&gt;.)
+&lt;span class=&#34;math inline&#34;&gt;\(\xi\)&lt;/span&gt; is a vector the same length as &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; (and as many rows as &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;).
+Using this variable allows some points to be on the wrong side of the margin.
+(See the right image, above.)&lt;/p&gt;
+&lt;p&gt;The standard way to modify the constraint in the face of a slack variable is this:&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(y_i \cdot (x^T\beta + \beta_0) \ge M\cdot(1 - \xi_i)\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;But we have to more constraints on the total number of misclassified observations.
+The new constraints are&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  \xi_i \ge 0 \forall i\\
+  \sum_{i=1}^N \xi_i \leq K
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This leads to the way the support vector classifier is usually defined.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  \min\lVert\beta\rVert &amp;amp;\text{  subject to  }
+    \begin{cases}
+      y_i(x_i^T\beta + \beta_0) \ge 1 - \xi_i \forall i,\\
+      \xi_ \geq 0, \sum \xi_i \leq K
+    \end{cases}
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;another-calculus-linking-aside&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Another calculus linking aside&lt;/h4&gt;
+&lt;p&gt;From the link above, if I wanted to do this with calculus I would have the following:&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(\min_{\beta,\beta_0} \lVert\beta\rVert + \lambda_1(y_i\cdot(x^T\beta + \beta_0) - 1 - s_1^2) + \lambda_2(\xi - s_2^2) + \lambda_3(\sum_i\xi - K + s_3^2)\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;Full disclosure: I’m not 100% sure about the plus sign on &lt;span class=&#34;math inline&#34;&gt;\(s_3^2\)&lt;/span&gt;. Caveat emptor!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;solving-it-the-way-hastie-et-al.do&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Solving it the way Hastie et al. do&lt;/h3&gt;
+&lt;p&gt;Reader, I warn you that this section gets ugly and confusing.
+Feel free to skip it unless you’re going to build your own support vector classifier from scratch.&lt;/p&gt;
+&lt;p&gt;Hastie et al. (and I assume the rest of the ML world) rely on a couple of tricks to make the support vector classifier more computationally tractable.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;They restate the problem to something that makes the algebra a little nicer.&lt;/li&gt;
+&lt;li&gt;They restate the problem again in a way that makes it nicer to put in a quadratic optimization solver.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To the second, some vocabulary:
+The “primal” problem is the equation as originally stated.
+The “dual” problem is an equivalent problem that, if solved, will result in the same answer.&lt;/p&gt;
+&lt;p&gt;To make it more computationally friendly, the problem above is often re-stated as&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(\min_{\beta,\beta_0} \frac{1}{2}\lVert\beta\rVert^2 + C\sum_{i=1}^N\xi_i\)&lt;/span&gt; subject to &lt;span class=&#34;math inline&#34;&gt;\(\xi_i \geq 0, y_i(x_i^T\beta + \beta_0) \geq 1 - \xi_i, \forall i\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;The Lagrange (primal) function becomes&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(L_P = \frac{1}{2}\lVert\beta\rVert^2 + C\sum_{i=1}^N\xi_i - \sum_{i=1}^N \alpha_i(y_i(x_i^T\beta+\beta_0) - (1 - \xi_i)) - \sum_{i=1}^N\mu_i\xi_i\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;I’m inferring that &lt;span class=&#34;math inline&#34;&gt;\(\alpha_i\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\mu_i\)&lt;/span&gt; are the Lagrange multipliers.
+But maybe I’m wrong.
+Caveat emptor again!&lt;/p&gt;
+&lt;p&gt;Setting the derivatives equal to zero and doing some &lt;del&gt;magic&lt;/del&gt; math we see&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  \beta &amp;amp;= \sum_{i=1}^N \alpha_i y_i x_i\\
+  0 &amp;amp;= \sum_{i=1}^N \alpha_i y_i  \\
+  \alpha_i &amp;amp;= C - \mu_i, \forall i
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;which you can substitute back in to get the dual problem:&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(L_D = \sum_{i=1}^N\alpha_i - \frac{1}{2} \sum_{i=1}^N\sum_{j=1}^N \alpha_i\alpha_jy_iy_jx_i^Tx_j^T\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;The above is subject to several constraints.
+The first couple are from our problem as we’ve already stated it:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  &amp;amp;0 \leq \alpha_i \leq C\\
+  &amp;amp;\text{ and }\\
+  &amp;amp;\sum_{i=1}^N\alpha_iy_i = 0
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;And the remainder are from the &lt;a href=&#34;https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions&#34;&gt;Karush–Kuhn–Tucker conditions&lt;/a&gt;.
+(I’m going to refer to them as the KKT conditions.)
+The KKT conditions help with finding solutions to nonlinear optimization problems.
+The additional constraints that they introduce are&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  \alpha_i(y_i(x_i^T\beta + \beta_0) - (1 - \xi_i)) &amp;amp;= 0\\
+  \mu_i\xi_i &amp;amp;= 0\\
+  y_i(x_i^T\beta+\beta_0) - (1 - \xi_i) &amp;amp;\geq 0
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bringing-it-home&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bringing it home&lt;/h3&gt;
+&lt;p&gt;Ignoring the computational details that we just painfully went through (and still weren’t enough to get you to actually compute it yourself):&lt;/p&gt;
+&lt;p&gt;The solution for &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; has the form &lt;span class=&#34;math inline&#34;&gt;\(\hat\beta = \sum_{i=1}^N \hat\alpha_i y_i x_x\)&lt;/span&gt;.
+For the overwhelming majority of observations, &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\hat\alpha_i = 0\)&lt;/span&gt;.
+The ones where &lt;span class=&#34;math inline&#34;&gt;\(\hat\alpha_i \neq 0\)&lt;/span&gt; are due to the case where &lt;span class=&#34;math inline&#34;&gt;\((x_i^T\beta + \beta_0) - (1 - \xi_i)) = 0\)&lt;/span&gt; exactly.
+(Note the first and last of the KKT conditions.)&lt;/p&gt;
+&lt;p&gt;These points are called “support vectors” since &lt;span class=&#34;math inline&#34;&gt;\(\hat\beta\)&lt;/span&gt; is represented by them alone.
+Of those, some points lie exactly on the margin.
+In that case &lt;span class=&#34;math inline&#34;&gt;\(\hat\xi_i=0\)&lt;/span&gt; and consequently &lt;span class=&#34;math inline&#34;&gt;\(0 &amp;lt; \hat\alpha_i &amp;lt; C\)&lt;/span&gt;.
+We use these points to solve for &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt;, usually by averaging across them.
+For the remainder &lt;span class=&#34;math inline&#34;&gt;\(\hat\xi_i&amp;gt;0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\hat\alpha_i = C\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, as indicated way up at the top, you need to use the sign of &lt;span class=&#34;math inline&#34;&gt;\(x_i^T\hat\beta + \hat\beta_0\)&lt;/span&gt; to make a class assignment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;next-time&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Next time&lt;/h2&gt;
+&lt;p&gt;Next time I’ll write about kernel methods for SVMs and how we use an extension of the support vector classifier to estimate SVMs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;I have two questions about this: 1. Why? 2. Does this include &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt;? It’s always seemed more elegant to me when writing linear equations to just do &lt;span class=&#34;math inline&#34;&gt;\(x^T\beta\)&lt;/span&gt; where one vector of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; is ones. For linear regression, that has no consequences, but it might here (or for ridge or lasso regressions).&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Blogging my way through the rest of my PhD</title>
@@ -70,13 +265,13 @@ Two of my committee members are taking on putting together this portion of the e
 &lt;h2&gt;The written portion&lt;/h2&gt;
 &lt;p&gt;The courses we chose to base the written portion of the exam were&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;a href=&#34;http://seor.vse.gmu.edu/~klaskey/SYST664/SYST664.html&#34;&gt;Bayesian Inference and Decision Theory&lt;/a&gt; which I actually took at &lt;a href=&#34;https://myaccess.georgetown.edu/pls/bninbp/bwckctlg.p_disp_course_detail?cat_term_in=201810&amp;amp;subj_code_in=MATH&amp;amp;crse_numb_in=640&#34;&gt;Georgetown&lt;/a&gt; through &lt;a href=&#34;https://www.consortium.org/&#34;&gt;the Consortium of Universities in the Washington Metropolitan Area&lt;/a&gt;, which lets me take comparable courses at any university with less buraucracy than using transfer credits.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://seor.vse.gmu.edu/~klaskey/SYST664/SYST664.html&#34;&gt;Bayesian Inference and Decision Theory&lt;/a&gt; which I actually took at &lt;a href=&#34;https://myaccess.georgetown.edu/pls/bninbp/bwckctlg.p_disp_course_detail?cat_term_in=201810&amp;amp;subj_code_in=MATH&amp;amp;crse_numb_in=640&#34;&gt;Georgetown&lt;/a&gt; through &lt;a href=&#34;https://www.consortium.org/&#34;&gt;the Consortium of Universities in the Washington Metropolitan Area&lt;/a&gt;, which lets me take comparable courses at any university with less bureaucracy than using transfer credits.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://patriotweb.gmu.edu:9977/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=201670&amp;amp;subj_code_in=CSI&amp;amp;crse_numb_in=777&#34;&gt;Principles of Knowledge Mining&lt;/a&gt; which is really a machine learning course but focused on data mining&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://math.gmu.edu/syllabi/F17/689-001-Griva.pdf&#34;&gt;Computational Learning and Discovery&lt;/a&gt; which is also a machine learning course but focused more on the mathematics of the various methods&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Since Principles of Knowledge Mining and Computational Learning and Discovery had significant overlap in material we decided to split the exam based on supervised learning and unsupervised learning, without distinction of which course it came from.&lt;/p&gt;
-&lt;div id=&#34;baysian-stats&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Baysian stats&lt;/h3&gt;
+&lt;div id=&#34;bayesian-stats&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bayesian stats&lt;/h3&gt;
 &lt;p&gt;Technically, my main study resource for this will be the notes, homework, and exams from my Bayesian stats class. (This is an advantage of having the instructor for the course on your committee.) However, two books that I may use as additional reference are&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.stat.columbia.edu/~gelman/book/&#34;&gt;Bayesian Data Analysis&lt;/a&gt; by Gelman et al.&lt;/li&gt;
@@ -86,7 +281,7 @@ Two of my committee members are taking on putting together this portion of the e
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Metropolis Hastings (this still seems like magic to me)&lt;/li&gt;
 &lt;li&gt;Model checking and evaluation&lt;/li&gt;
-&lt;li&gt;Baysian regression - linear and ridge regression&lt;/li&gt;
+&lt;li&gt;Bayesian regression - linear and ridge regression&lt;/li&gt;
 &lt;li&gt;The Dirichlet multinomial&lt;/li&gt;
 &lt;li&gt;The Dirichlet multinomial with a hierarchical uniform prior&lt;/li&gt;
 &lt;/ol&gt;
@@ -124,7 +319,7 @@ I’m planning to (a) implement a NUTS sampler for LDA as a derivative of MH sam
 &lt;/div&gt;
 &lt;div id=&#34;other-topics-in-machine-learning&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Other topics in machine learning&lt;/h3&gt;
-&lt;p&gt;Ohter topics will be&lt;/p&gt;
+&lt;p&gt;Other topics will be&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Overfitting&lt;/li&gt;
 &lt;li&gt;Generalization&lt;/li&gt;
@@ -141,7 +336,7 @@ I’m planning to (a) implement a NUTS sampler for LDA as a derivative of MH sam
 From discussions, what we are going to do is do some flag planting for a paper that I intend to write as part of the dissertation.
 I’ve implemented a couple forms of transfer learning for LDA (or an LDA-like model) in a &lt;a href=&#34;https://github.com/tommyjones/tidylda&#34;&gt;new R package I’m working on&lt;/a&gt;.
 So we’d be looking at a preliminary study of that.
-Thing is, we don’t know how permanant/forgetful LDA is in this paradigm.
+Thing is, we don’t know how permanent/forgetful LDA is in this paradigm.
 And I don’t know that the way I implemented it is optimal.
 Topics to consider might be&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;

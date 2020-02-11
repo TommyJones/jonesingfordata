@@ -42,13 +42,13 @@ As a personal aside/musing: looking at what I'm being tested on, it feels like m
 
 The courses we chose to base the written portion of the exam were
 
-1. [Bayesian Inference and Decision Theory](http://seor.vse.gmu.edu/~klaskey/SYST664/SYST664.html) which I actually took at [Georgetown](https://myaccess.georgetown.edu/pls/bninbp/bwckctlg.p_disp_course_detail?cat_term_in=201810&subj_code_in=MATH&crse_numb_in=640) through [the Consortium of Universities in the Washington Metropolitan Area](https://www.consortium.org/), which lets me take comparable courses at any university with less buraucracy than using transfer credits.
+1. [Bayesian Inference and Decision Theory](http://seor.vse.gmu.edu/~klaskey/SYST664/SYST664.html) which I actually took at [Georgetown](https://myaccess.georgetown.edu/pls/bninbp/bwckctlg.p_disp_course_detail?cat_term_in=201810&subj_code_in=MATH&crse_numb_in=640) through [the Consortium of Universities in the Washington Metropolitan Area](https://www.consortium.org/), which lets me take comparable courses at any university with less bureaucracy than using transfer credits.
 2. [Principles of Knowledge Mining](https://patriotweb.gmu.edu:9977/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=201670&subj_code_in=CSI&crse_numb_in=777) which is really a machine learning course but focused on data mining
 3. [Computational Learning and Discovery](http://math.gmu.edu/syllabi/F17/689-001-Griva.pdf) which is also a machine learning course but focused more on the mathematics of the various methods
 
 Since Principles of Knowledge Mining and Computational Learning and Discovery had significant overlap in material we decided to split the exam based on supervised learning and unsupervised learning, without distinction of which course it came from.
 
-### Baysian stats
+### Bayesian stats
 
 Technically, my main study resource for this will be the notes, homework, and exams from my Bayesian stats class. (This is an advantage of having the instructor for the course on your committee.) However, two books that I may use as additional reference are
 
@@ -59,7 +59,7 @@ And I've been told that everything in the course is fair game. That said, I'm go
 
 1. Metropolis Hastings (this still seems like magic to me)
 2. Model checking and evaluation
-3. Baysian regression - linear and ridge regression
+3. Bayesian regression - linear and ridge regression
 4. The Dirichlet multinomial
 5. The Dirichlet multinomial with a hierarchical uniform prior
 
@@ -96,7 +96,7 @@ The topics I'll be focusing on are
 
 ### Other topics in machine learning
 
-Ohter topics will be 
+Other topics will be 
 
 1. Overfitting
 2. Generalization
@@ -113,7 +113,7 @@ I don't really need to "study" for the computation portion.
 From discussions, what we are going to do is do some flag planting for a paper that I intend to write as part of the dissertation.
 I've implemented a couple forms of transfer learning for LDA (or an LDA-like model) in a [new R package I'm working on](https://github.com/tommyjones/tidylda).
 So we'd be looking at a preliminary study of that. 
-Thing is, we don't know how permanant/forgetful LDA is in this paradigm.
+Thing is, we don't know how permanent/forgetful LDA is in this paradigm.
 And I don't know that the way I implemented it is optimal.
 Topics to consider might be
 
