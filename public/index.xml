@@ -5,12 +5,72 @@
     <link>https://www.jonesingfordata.com/</link>
       <atom:link href="https://www.jonesingfordata.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Tommy Jones</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Mon, 10 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>Tommy Jones</title>
       <link>https://www.jonesingfordata.com/</link>
     </image>
+    
+    <item>
+      <title>Intro to clustering</title>
+      <link>https://www.jonesingfordata.com/post/intro-to-clustering/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/post/intro-to-clustering/</guid>
+      <description>
+
+
+&lt;p&gt;Cluster analysis is a type (perhaps the most common type) of unsupervised machine learning.
+In cluster analysis, the goal is to assign points to groups in such a way that points in the same group are more similar to each other than they are to points in other groups.&lt;/p&gt;
+&lt;p&gt;One thing that is (somewhat shockingly) not explicitly stated in discussions of clustering is this:
+Fundamental to cluster analysis is the notion of distance.
+Specifically, we measure every point’s distance to something, whether it’s all the other points or to certain exemplar points.
+In many cases, one can use the same clustering algorithm with different distance measures and get wildly different results.
+I can tell you from my experience that a great many attempts at clustering have failed because of a poor choice of distance measure.
+In my opinion, for example, cosine similarity (distance) is wildly over used and results may suffer.
+But I think that’s probably a &lt;del&gt;rant&lt;/del&gt; post in its own right and better left off of my study guide.&lt;/p&gt;
+&lt;p&gt;This post gives a high-level overview of clustering.
+It is mostly drawn from the first edition of &lt;a href=&#34;https://www-users.cs.umn.edu/~kumar001/dmbook/index.php&#34;&gt;Introduction to Data Mining by Tan et al.&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tan et al. put forth two different taxonomies of clustering algorithms.
+I’m not going to lie: I struggle to define each of the taxonomies, though it’s obvious they are two different (and useful) ways of thinking about your clustering algorithms.&lt;/p&gt;
+&lt;p&gt;This &lt;em&gt;particular&lt;/em&gt; post pulls from Tan et al. not &lt;a href=&#34;&#34;&gt;Hastie et al.&lt;/a&gt;
+As a result, I can’t guarantee that all of Hastie’s stuff (which I will write about) fits neatly into these taxonomies.
+However, I think it’s good to have a working (if imperfect) high-level framework for this type of thing.
+Having that high-level framework makes it easier to incorporate new information, IMHO.&lt;/p&gt;
+&lt;div id=&#34;taxonomy-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Taxonomy 1&lt;/h3&gt;
+&lt;p&gt;This taxonomy breaks down as&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;em&gt;Hierarchical vs. partitional&lt;/em&gt;
+Hierarchical clustering assumes that clusters are hierarchically nested. As one moves up the tree, smaller clusters merge into larger clusters. (Or you can move down and split larger clusters into smaller ones.) Partitional clustering cuts all the ponts into distinct groups.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Exclusive vs. overlapping vs. fuzzy&lt;/em&gt;
+Exclusive clustering means that points are assigned to one and only one cluster. Overlapping clustering means that a point can simultaneously belong in more than one cluster at once. Fuzzy clustering means that each point is assigned a weighted (possibly probabilistic) membership to every cluster.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Complete vs. partial&lt;/em&gt;
+A complete clustering assigns every point to a cluster. A partial clustering allows some points to belong in no clusters. An example of the latter is typical in density-based clustering where some points may be assigned as “noise” and not given a cluster assignment.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;taxonomy-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Taxonomy 2&lt;/h3&gt;
+&lt;p&gt;This taxonomy breaks down as&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;em&gt;Well-separated&lt;/em&gt;
+Well-separated clusters are the platonic ideal of a cluster. There are clear divisions between which points belong in which cluster(s).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Prototype-based&lt;/em&gt;
+In prototype-based clustering, each cluster has an exemplar or prototype. An example might be the mean or median of each point in a cluster. Then, points are assigned to clusters based on their distance to the prototype.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Graph-based&lt;/em&gt;
+Graph-based clustering is often called “community detection.” If the data may be represented as a graph, with points being nodes, then the distance/similarity represents a link between points.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Density-based&lt;/em&gt;
+In density-based clustering, a cluster is defined as a dense region of points surrounded by a low density region. Points in the low density region bay be consistered “noise points” and not assigned to any cluster.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Shared-property (conceptual clustering)&lt;/em&gt;
+In this type of clustering scheme, points are assigned a cluster because they share a common property. For example, imagine assigning all red cars to a cluster, regardless of other similarities or differeneces they may have.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;further-on-clustering&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Further on clustering&lt;/h3&gt;
+&lt;p&gt;My following posts will outline several common clustering algorithms as well as cover cluster evaluation and some other topics in clustering. Stay tuned!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Support vector machines and kernels</title>

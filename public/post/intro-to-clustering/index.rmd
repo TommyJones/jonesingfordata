@@ -1,0 +1,75 @@
+---
+title: "Intro to clustering"
+author: "Tommy Jones"
+date: "2020-02-11"
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: "2020-02-11"
+featured: no
+disable_jquery: no
+projects: []
+image:
+  caption: '[Image from Costco](https://richmedia.channeladvisor.com/ImageDelivery/imageService?profileId=12026540&id=1110747&recipeId=728f)'
+  focal_point: ''
+  preview_only: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Cluster analysis is a type (perhaps the most common type) of unsupervised machine learning.
+In cluster analysis, the goal is to assign points to groups in such a way that points in the same group are more similar to each other than they are to points in other groups.
+
+One thing that is (somewhat shockingly) not explicitly stated in discussions of clustering is this:
+Fundamental to cluster analysis is the notion of distance.
+Specifically, we measure every point's distance to something, whether it's all the other points or to certain exemplar points.
+In many cases, one can use the same clustering algorithm with different distance measures and get wildly different results.
+I can tell you from my experience that a great many attempts at clustering have failed because of a poor choice of distance measure.
+In my opinion, for example, cosine similarity (distance) is wildly over used and results may suffer.
+But I think that's probably a ~~rant~~ post in its own right and better left off of my study guide.
+
+This post gives a high-level overview of clustering.
+It is mostly drawn from the first edition of [Introduction to Data Mining by Tan et al.](https://www-users.cs.umn.edu/~kumar001/dmbook/index.php).
+
+Tan et al. put forth two different taxonomies of clustering algorithms.
+I'm not going to lie: I struggle to define each of the taxonomies, though it's obvious they are two different (and useful) ways of thinking about your clustering algorithms.
+
+This *particular* post pulls from Tan et al. not [Hastie et al.]()
+As a result, I can't guarantee that all of Hastie's stuff (which I will write about) fits neatly into these taxonomies.
+However, I think it's good to have a working (if imperfect) high-level framework for this type of thing.
+Having that high-level framework makes it easier to incorporate new information, IMHO.
+
+### Taxonomy 1
+
+This taxonomy breaks down as 
+
+1. *Hierarchical vs. partitional*
+   Hierarchical clustering assumes that clusters are hierarchically nested. As one moves up the tree, smaller clusters merge into larger clusters. (Or you can move down and split larger clusters into smaller ones.) Partitional clustering cuts all the ponts into distinct groups. 
+2. *Exclusive vs. overlapping vs. fuzzy*
+   Exclusive clustering means that points are assigned to one and only one cluster. Overlapping clustering means that a point can simultaneously belong in more than one cluster at once. Fuzzy clustering means that each point is assigned a weighted (possibly probabilistic) membership to every cluster.
+3. *Complete vs. partial*
+   A complete clustering assigns every point to a cluster. A partial clustering allows some points to belong in no clusters. An example of the latter is typical in density-based clustering where some points may be assigned as "noise" and not given a cluster assignment.
+
+### Taxonomy 2
+
+This taxonomy breaks down as 
+
+1. *Well-separated*
+   Well-separated clusters are the platonic ideal of a cluster. There are clear divisions between which points belong in which cluster(s).
+2. *Prototype-based*
+   In prototype-based clustering, each cluster has an exemplar or prototype. An example might be the mean or median of each point in a cluster. Then, points are assigned to clusters based on their distance to the prototype.
+3. *Graph-based*
+   Graph-based clustering is often called "community detection." If the data may be represented as a graph, with points being nodes, then the distance/similarity represents a link between points.
+4. *Density-based*
+   In density-based clustering, a cluster is defined as a dense region of points surrounded by a low density region. Points in the low density region bay be consistered "noise points" and not assigned to any cluster.
+5. *Shared-property (conceptual clustering)*
+   In this type of clustering scheme, points are assigned a cluster because they share a common property. For example, imagine assigning all red cars to a cluster, regardless of other similarities or differeneces they may have.
+   
+### Further on clustering
+My following posts will outline several common clustering algorithms as well as cover cluster evaluation and some other topics in clustering. Stay tuned!
+
