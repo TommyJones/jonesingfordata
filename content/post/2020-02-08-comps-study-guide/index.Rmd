@@ -58,10 +58,11 @@ Technically, my main study resource for this will be the notes, homework, and ex
 And I've been told that everything in the course is fair game. That said, I'm going to focus on the areas that feel the most rusty to me, namely
 
 1. Metropolis Hastings (this still seems like magic to me)
-2. Model checking and evaluation
-3. Bayesian regression - linear and ridge regression
-4. The Dirichlet multinomial
-5. The Dirichlet multinomial with a hierarchical uniform prior
+2. Gibbs sampling
+3. Model checking and evaluation
+4. Bayesian regression - linear and ridge regression
+5. The Dirichlet multinomial
+6. The Dirichlet multinomial with a hierarchical uniform prior
 
 WRT that last two, I definitely know they're going to come into play during my dissertation itself.
 I'm planning to (a) implement a NUTS sampler for LDA as a derivative of MH sampler in the WarpLDA algorithm and (b) would like to implement an LDA derivative that puts a hierarchical uniform prior on $\boldsymbol\alpha$.
@@ -93,6 +94,33 @@ The topics I'll be focusing on are
 1. Clustering from Hastie et al. (Ch. 14, specifically section 14.3)
 2. Clustering from Tan et al. (Ch. 8 - 9 in 1st ed. TBD on whether or not I do 1st or 2nd ed.)
 3. Anomaly detection from Tan et al. (Ch. 10 in 1st ed.)
+
+#### Clustering
+
+1. K-means & K-medoids
+2. Agglomorative hierarchical clustering
+3. DBSCAN
+4. Gaussian mixture model
+5. Other clustering algorithms
+   - Prototype-based clustering
+   - Density-based clustering (non-DBSCAN)
+   - Graph-based clustering (including page-rank)
+6. Cluster evaluation
+7. Which clustering algorithm?
+
+#### Dimensionality reduction
+
+1. Principal component analysis
+2. Non-negative matrix factorization
+3. Independent component analysis
+4. Multidimensional scaling
+
+#### Anomaly detection
+
+1. Statistical approaches
+2. Proximity-based outlier detection
+3. Density-based outlier detection
+4. Clustering-based techniques
 
 ### Other topics in machine learning
 

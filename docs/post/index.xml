@@ -5,12 +5,66 @@
     <link>https://www.jonesingfordata.com/post/</link>
       <atom:link href="https://www.jonesingfordata.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Blog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Mon, 10 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>Blog</title>
       <link>https://www.jonesingfordata.com/post/</link>
     </image>
+    
+    <item>
+      <title>Support vector machines and kernels</title>
+      <link>https://www.jonesingfordata.com/post/2020-02-11-svm-kernels/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/post/2020-02-11-svm-kernels/</guid>
+      <description>
+
+
+&lt;p&gt;In my effort to &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/&#34;&gt;blog my way through the rest of my PhD&lt;/a&gt; and &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/&#34;&gt;study for comps&lt;/a&gt;, I present to you more on support vector machines.&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;As I said &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-09-review-of-svm-hastie/&#34;&gt;last time&lt;/a&gt;:
+There are two components to SVMs.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The support vector classifier and&lt;/li&gt;
+&lt;li&gt;Kernel methods&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The first post covered the support vector classifier and its estimation.
+In this post, I’m going to cover kernel methods for SVMs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-do-we-get-non-linearity-from-a-linear-classifier&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;How do we get non-linearity from a linear classifier?&lt;/h2&gt;
+&lt;p&gt;With SVMs, the intuition of addressing non-linearity is similar to linear regression.
+Basically, you transform your right-hand-side variables in non-linear ways.
+Remember that for linear regression, if my RHS variable is &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; but I want it to have a quadratic relationship to &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, then I regress &lt;span class=&#34;math inline&#34;&gt;\(x^2\)&lt;/span&gt; on &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; instead of trying to figure out some sort of quadratic regression.
+The intuition with SVMs are the same: transform &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; in a non-linear way, then use the linear support vector classifier on it.&lt;/p&gt;
+&lt;p&gt;The intuition is the same, but of course it’s more complicated with SVMs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-1-transform-your-space-transform-your-life&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Step 1: transform your space transform your life&lt;/h2&gt;
+&lt;p&gt;We want to project our features &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; from their original space, &lt;span class=&#34;math inline&#34;&gt;\(\mathbb{R}^p\)&lt;/span&gt;, to a new space, &lt;span class=&#34;math inline&#34;&gt;\(\mathbb{R}^q\)&lt;/span&gt;.
+And perhaps &lt;span class=&#34;math inline&#34;&gt;\(q &amp;gt;&amp;gt; p\)&lt;/span&gt;.
+We are going to do this with a function, &lt;span class=&#34;math inline&#34;&gt;\(h\)&lt;/span&gt;, such that &lt;span class=&#34;math inline&#34;&gt;\(h: \mathbb{R}^p \mapsto \mathbb{R}^q\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Then, we fit a linear classifier on &lt;span class=&#34;math inline&#34;&gt;\(h(x)\)&lt;/span&gt; instead of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; like so:
+&lt;span class=&#34;math inline&#34;&gt;\(f(x) = h(x)^T\beta + \beta_0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Similar to the dual problem that we did in my last post we need to maximize&lt;/p&gt;
+&lt;center&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(L_D = \sum_{i=1}^N\alpha_i - \frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_j y_iy_j \langle h(x_i), h(x_j) \rangle\)&lt;/span&gt;
+&lt;/center&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(\langle a, b \rangle\)&lt;/span&gt; represents the inner product between &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(b\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Using the result from last time that &lt;span class=&#34;math inline&#34;&gt;\(\beta = \sum_{i=1}^N\alpha_i y_i x_i\)&lt;/span&gt; and some substitution we see that&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  f(x) &amp;amp;= h(x)^T\beta + \beta_0\\
+       &amp;amp;= \sum_{i=1}^N \alpha_i y_i \langle h(x), h(x_i)\rangle + \beta_0
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;and we can solve for &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt; by solving &lt;span class=&#34;math inline&#34;&gt;\(y_i f(x_i) = 1\)&lt;/span&gt; for all of the &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(0 &amp;lt; \alpha_i &amp;lt; C\)&lt;/span&gt;, or for the support vectors.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2-what-is-a-kernel&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Step 2: what is a kernel?&lt;/h2&gt;
+&lt;p&gt;We can see that to solve this linear classifier with the projected data &lt;span class=&#34;math inline&#34;&gt;\(h(x)\)&lt;/span&gt;, we need the inner products &lt;span class=&#34;math inline&#34;&gt;\(h(x)h(x)^T\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Support Vector Machines in Hastie et al.</title>
@@ -284,6 +338,7 @@ Two of my committee members are taking on putting together this portion of the e
 &lt;p&gt;And I’ve been told that everything in the course is fair game. That said, I’m going to focus on the areas that feel the most rusty to me, namely&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Metropolis Hastings (this still seems like magic to me)&lt;/li&gt;
+&lt;li&gt;Gibbs sampling&lt;/li&gt;
 &lt;li&gt;Model checking and evaluation&lt;/li&gt;
 &lt;li&gt;Bayesian regression - linear and ridge regression&lt;/li&gt;
 &lt;li&gt;The Dirichlet multinomial&lt;/li&gt;
@@ -320,6 +375,41 @@ I’m planning to (a) implement a NUTS sampler for LDA as a derivative of MH sam
 &lt;li&gt;Clustering from Tan et al. (Ch. 8 - 9 in 1st ed. TBD on whether or not I do 1st or 2nd ed.)&lt;/li&gt;
 &lt;li&gt;Anomaly detection from Tan et al. (Ch. 10 in 1st ed.)&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div id=&#34;clustering&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Clustering&lt;/h4&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;K-means &amp;amp; K-medoids&lt;/li&gt;
+&lt;li&gt;Agglomorative hierarchical clustering&lt;/li&gt;
+&lt;li&gt;DBSCAN&lt;/li&gt;
+&lt;li&gt;Gaussian mixture model&lt;/li&gt;
+&lt;li&gt;Other clustering algorithms
+&lt;ul&gt;
+&lt;li&gt;Prototype-based clustering&lt;/li&gt;
+&lt;li&gt;Density-based clustering (non-DBSCAN)&lt;/li&gt;
+&lt;li&gt;Graph-based clustering (including page-rank)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Cluster evaluation&lt;/li&gt;
+&lt;li&gt;Which clustering algorithm?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dimensionality-reduction&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Dimensionality reduction&lt;/h4&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Principal component analysis&lt;/li&gt;
+&lt;li&gt;Non-negative matrix factorization&lt;/li&gt;
+&lt;li&gt;Independent component analysis&lt;/li&gt;
+&lt;li&gt;Multidimensional scaling&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;anomaly-detection&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Anomaly detection&lt;/h4&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Statistical approaches&lt;/li&gt;
+&lt;li&gt;Proximity-based outlier detection&lt;/li&gt;
+&lt;li&gt;Density-based outlier detection&lt;/li&gt;
+&lt;li&gt;Clustering-based techniques&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;other-topics-in-machine-learning&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Other topics in machine learning&lt;/h3&gt;
