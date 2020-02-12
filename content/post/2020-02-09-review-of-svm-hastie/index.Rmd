@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-In my effort to [blog my way through the rest of my PhD](https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/) and [study for comps](https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/), I present to you support vector machines.
+In my effort to [blog my way through the rest of my PhD](https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/) and [study for comps](https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/), I present to you support vector machines. This is the first of at least 2 and possibly 3 articles on SVMs.
 
 When we covered SVMs in my ML class a couple years ago, we focused on computational methods rather than the math. 
 The focus for comps is more-or-less the opposite so we're going with chapter 12 of [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/Papers/ESLII.pdf).

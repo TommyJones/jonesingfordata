@@ -74,7 +74,7 @@ We are going to do this with a function, &lt;span class=&#34;math inline&#34;&gt
       <description>
 
 
-&lt;p&gt;In my effort to &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/&#34;&gt;blog my way through the rest of my PhD&lt;/a&gt; and &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/&#34;&gt;study for comps&lt;/a&gt;, I present to you support vector machines.&lt;/p&gt;
+&lt;p&gt;In my effort to &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/&#34;&gt;blog my way through the rest of my PhD&lt;/a&gt; and &lt;a href=&#34;https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/&#34;&gt;study for comps&lt;/a&gt;, I present to you support vector machines. This is the first of at least 2 and possibly 3 articles on SVMs.&lt;/p&gt;
 &lt;p&gt;When we covered SVMs in my ML class a couple years ago, we focused on computational methods rather than the math.
 The focus for comps is more-or-less the opposite so we’re going with chapter 12 of &lt;a href=&#34;https://web.stanford.edu/~hastie/Papers/ESLII.pdf&#34;&gt;The Elements of Statistical Learning&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I’ve found that many academics in CS seem infatuated with SVMs and I’ve struggled to understand why.&lt;/p&gt;
