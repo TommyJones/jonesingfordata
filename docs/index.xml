@@ -29,6 +29,7 @@ In many cases, one can use the same clustering algorithm with different distance
 I can tell you from my experience that a great many attempts at clustering have failed because of a poor choice of distance measure.
 In my opinion, for example, cosine similarity (distance) is wildly over used and results may suffer.
 But I think that’s probably a &lt;del&gt;rant&lt;/del&gt; post in its own right and better left off of my study guide.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Edit:&lt;/strong&gt; Turns out Hastie et al. have a pretty big section leading into a discussion of clustering all on distance matrices and measures. Thus this shows again how great that book is.&lt;/p&gt;
 &lt;p&gt;This post gives a high-level overview of clustering.
 It is mostly drawn from the first edition of &lt;a href=&#34;https://www-users.cs.umn.edu/~kumar001/dmbook/index.php&#34;&gt;Introduction to Data Mining by Tan et al.&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Tan et al. put forth two different taxonomies of clustering algorithms.

@@ -33,6 +33,8 @@ I can tell you from my experience that a great many attempts at clustering have 
 In my opinion, for example, cosine similarity (distance) is wildly over used and results may suffer.
 But I think that's probably a ~~rant~~ post in its own right and better left off of my study guide.
 
+**Edit:** Turns out Hastie et al. have a pretty big section leading into a discussion of clustering all on distance matrices and measures. Thus this shows again how great that book is.
+
 This post gives a high-level overview of clustering.
 It is mostly drawn from the first edition of [Introduction to Data Mining by Tan et al.](https://www-users.cs.umn.edu/~kumar001/dmbook/index.php).
 
