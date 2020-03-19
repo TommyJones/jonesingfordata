@@ -5,12 +5,295 @@
     <link>https://www.jonesingfordata.com/</link>
       <atom:link href="https://www.jonesingfordata.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Tommy Jones</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Thomas W. Jones 2020</copyright><lastBuildDate>Sat, 14 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.jonesingfordata.com/img/icon-192.png</url>
       <title>Tommy Jones</title>
       <link>https://www.jonesingfordata.com/</link>
     </image>
+    
+    <item>
+      <title>Bayesian model evaluation and comparison</title>
+      <link>https://www.jonesingfordata.com/post/2020-03-18-bayesian-model-evaluation/bayesian-model-evaluation/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.jonesingfordata.com/post/2020-03-18-bayesian-model-evaluation/bayesian-model-evaluation/</guid>
+      <description>
+
+
+&lt;p&gt;Suppose you have a Bayesian statistical model.
+How do you know it’s a good one?
+How do you know it isn’t fundamentally misspecified?
+How do you compare it to alternative model specifications?
+This post covers the material I’m studying for my comprehensive exam around Bayesian model evaluation (and checking and comparison).&lt;/p&gt;
+&lt;p&gt;But beyond studying for comps, this material has inspired some thoughts related to topic modeling.
+Most probabilistic topic models are Bayesian.
+The core topic of my research is about building better topic models more consistently.
+I wonder about the degree to which these methods would apply (meaningfully) to topic modeling.
+Food for thought…&lt;/p&gt;
+&lt;p&gt;For the below, I use the following convetions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is the data&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; is the parameter (or parameters) being estimated&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\mathcal{L}()\)&lt;/span&gt; is the likelihood function&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\mathcal{l}()\)&lt;/span&gt; is the log of &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{L}()\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(B\)&lt;/span&gt; is the number of samples drawn in a Markov chain&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;checking-convergence&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Checking convergence&lt;/h2&gt;
+&lt;p&gt;Most Bayesian models are fit using some sort of &lt;a href=&#34;https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo&#34;&gt;MCMC&lt;/a&gt; sampling.
+I won’t get into the details in this post.
+However, like backpropagation and other methods, MCMC is is iterative.
+It iteratively samples from the posterior and then updates estimates based on what’s sampled.
+This means that we need to ensure that the model has stabilized, or converged.
+Convergence is when the &lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;-th sample is independent of the &lt;span class=&#34;math inline&#34;&gt;\(j-b\)&lt;/span&gt;-th samples.
+To do this, one generally discards the initial iterations (which we know will not be independent).
+If your model has not converged, then there’s no point in doing any other evaluation, diagnostics, inference, etc. because you wouldn’t be able to differentiate between a poor evaluation due to model misspecification or because your model didn’t converge, for example.&lt;/p&gt;
+&lt;p&gt;Convergence is assessed on the last B iterations.
+Typically convergence is assessed against the parameters being estimated.
+However, for models like LDA (and other topic models), there are so many parameters, that checking them all is infeasible for both computational and storage reasons.
+In this case, we typically assess convergence on an overall statistic, like the log likelihood.&lt;/p&gt;
+&lt;p&gt;The convergence methods I’ll cover here are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Geweke’s convergence statistic&lt;/li&gt;
+&lt;li&gt;Gelmen-Rubin convergence statistic&lt;/li&gt;
+&lt;li&gt;Autocorrelation function plots&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;geweke-convergence-statistic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Geweke convergence statistic&lt;/h3&gt;
+&lt;p&gt;The Geweke convergence statistic is fairly straightforward.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Take two non-overlapping (and ordered) subsets of samples from your chain.
+(e.g. Take the first 10% vs. the last 50% of the chain.)&lt;/li&gt;
+&lt;li&gt;Calculate the mean over each subset.&lt;/li&gt;
+&lt;li&gt;Perform a difference in means test.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If the chain is stationary (i.e. if the model has converged) the means won’t be different.
+One change here is that you have to use autocorrelation consistent standard error.
+In the R function &lt;code&gt;coda::geweke.stat&lt;/code&gt;, the &lt;a href=&#34;http://ugrad.stat.ubc.ca/R/library/coda/html/geweke.diag.html&#34;&gt;documentation&lt;/a&gt; states that “[t]he standard error is estimated from the spectral density at zero and so takes into account any autocorrelation.”&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gelmen-rubin-statistic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Gelmen-Rubin statistic&lt;/h3&gt;
+&lt;p&gt;This statistic is a bit more complicated.
+The bottom line is that you calculate a statistic called a “scale reduction factor”, &lt;span class=&#34;math inline&#34;&gt;\(\hat{R}\)&lt;/span&gt;, that must be less than 1.2 to show convergence.
+Unlike the Geweke stat., you have to run more than one chain to calculate the Gelmen-Rubin statistic.&lt;/p&gt;
+&lt;p&gt;The procedure is as follows:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Run &lt;span class=&#34;math inline&#34;&gt;\(m \geq 2\)&lt;/span&gt; chains of length &lt;span class=&#34;math inline&#34;&gt;\(b = 2n\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Discard the first 50% (or first &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;) samples from each chain.&lt;/li&gt;
+&lt;li&gt;Calculate the average within chain variance,
+&lt;span class=&#34;math inline&#34;&gt;\(W = \frac{1}{m}\sum_{j = 1}^m s^2_j\)&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(s^2_j = \frac{1}{n - 1}\sum_{i=1}^n (\theta_{i,j} - \bar\theta_j)^2\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Calculate the between chain variance,
+&lt;span class=&#34;math inline&#34;&gt;\(B = \frac{n}{m - 1}\sum_{j=1}^m(\bar\theta_j - \bar{\bar\theta})\)&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(\bar{\bar\theta} = \frac{1}{m}\sum_{j = 1}^m \bar\theta_j\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Calculate the variance of &lt;span class=&#34;math inline&#34;&gt;\(\hat\theta\)&lt;/span&gt; as a combination of within chain and between chain variance,
+&lt;span class=&#34;math inline&#34;&gt;\(\text{var}(\hat\theta) = \left(1 - \frac{1}{n}\right)W + \frac{1}{n}B\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Calculate the scale reduction factor,
+&lt;span class=&#34;math inline&#34;&gt;\(\hat{R} = \sqrt{\frac{\text{var}(\hat\theta)}{W}}\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;If &lt;span class=&#34;math inline&#34;&gt;\(\hat{R} \leq 1.2\)&lt;/span&gt; then your chains have converged.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;autocorrelation-function-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Autocorrelation function plot&lt;/h3&gt;
+&lt;p&gt;This isn’t a convergence statistic per-se.
+Rather, it displays how correlated (on average) a sample is to the &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; samples preceeding it.
+If a sample is corrlated with preceeding samples, then it’s unlikely that the samples are independent.&lt;/p&gt;
+&lt;p&gt;I won’t get into the math.
+(TBH, I don’t expect to get tested on it.)
+But below is some R code that demonstrates the ACF plot of an independent sample and a sample that is very much not independent.
+In general, we want the correlations to be close to zero to show independence (and thus chain convergence).&lt;/p&gt;
+&lt;p&gt;First, generate a chain of independent samples, &lt;code&gt;x_ind&lt;/code&gt; and a chain where the current sample depends on the previous sample, &lt;code&gt;x_dep&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# generate an independent sample
+x_ind &amp;lt;- rnorm(n = 1000, mean = 0, sd = 1)
+
+# generate a sample whose current value depends on preceeding values
+x_dep &amp;lt;- numeric(1000)
+
+x_dep[1] &amp;lt;- rnorm(1, 0, 1)
+
+for (j in seq_along(x_dep)[-1]) {
+  
+  x_dep[j] &amp;lt;- rnorm(1, mean = x_dep[j - 1], sd = 1)
+  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now plot the independent ACF.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;acf(x_ind, main = &amp;quot;ACF of chain of independent samples&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.jonesingfordata.com/post/2020-03-18-bayesian-model-evaluation/Bayesian-Model-Evaluation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And the non-independent ACF.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;acf(x_dep, main = &amp;quot;ACF of chain of non-independent samples&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.jonesingfordata.com/post/2020-03-18-bayesian-model-evaluation/Bayesian-Model-Evaluation_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;checking-for-misspecification&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Checking for misspecification&lt;/h2&gt;
+&lt;p&gt;Misspecification evaluations check whether or not your model has poor properties.
+If it does, maybe you need different prior parameters.
+Maybe you need a different prior distribution.
+Maybe you need a different likelihood distribution.
+Of course, even if everything looks good, there’s no guarantee that your model still isn’t pathologically misspecified. Caveat emptor!&lt;/p&gt;
+&lt;p&gt;The methods discussed below are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sensitivity analysis&lt;/li&gt;
+&lt;li&gt;Mixture model approach&lt;/li&gt;
+&lt;li&gt;External validation&lt;/li&gt;
+&lt;li&gt;Posterior predictive check&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;sensitivity-analysis&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sensitivity analysis&lt;/h3&gt;
+&lt;p&gt;A sensitivity analysis examines how the posterior distribution changes based on changes to the model specification.
+This may include changes in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The prior parameters&lt;/li&gt;
+&lt;li&gt;The prior distribution&lt;/li&gt;
+&lt;li&gt;The likelihood distribution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mixture-model-approach&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Mixture model approach&lt;/h3&gt;
+&lt;p&gt;When you have many different models (combinations of likelihoods and priors) that you think might be valid.
+One strategy might be to combine them into an “exhaustive probability model”.
+Here, your posterior, &lt;span class=&#34;math inline&#34;&gt;\(P(\theta|X, \text{etc.})\)&lt;/span&gt;, is a linear combination of all the models you think might be valid.
+Then you can perform a sensitivity analysis on the total posterior by tweaking elements of each individual input.&lt;/p&gt;
+&lt;p&gt;For each likelihood &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{L}_j\)&lt;/span&gt; and prior &lt;span class=&#34;math inline&#34;&gt;\(\pi_j\)&lt;/span&gt; the posterior is&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  P(\theta|X, \text{other params.})
+  &amp;amp;\propto
+    \lambda_1\mathcal{L}_1\pi_1 + 
+    \lambda_2\mathcal{L}_2\pi_2 + 
+    \lambda_3\mathcal{L}_3\pi_3 + ...
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(\sum_j \lambda_j = 1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;external-validation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;External validation&lt;/h3&gt;
+&lt;p&gt;For those familiar with machine learning, this should be familiar.
+How well does your Bayesian model predict held out data?
+If it is a poor predictor, it is likely not well-specified.
+Done.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;posterior-predictive-check&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Posterior predictive check&lt;/h3&gt;
+&lt;p&gt;Bayesian models are generative.
+A posterior predictive check has you sampling from the posterior.
+Then take your posterior samples and compare them to your data.
+(My reference doesn’t specify training data or held out data.
+Why not do both?)&lt;/p&gt;
+&lt;div id=&#34;tail-area-probabilities&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Tail area probabilities&lt;/h4&gt;
+&lt;p&gt;You can use a test statistic to compare the posterior samples with the observed data.
+For example, do they have different means and standard deviations?
+Maybe you can do a chi-squared test for equality of distribution.&lt;/p&gt;
+&lt;p&gt;To make this Bayesian, draw many samples and calculate many test statistics.
+You then get a distribution of statistics and can accept or reject a null hypothesis based on that.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;comparing-models&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Comparing models&lt;/h2&gt;
+&lt;p&gt;Sometimes you have two models.
+Maybe they were fit on the same data.
+Maybe they weren’t.
+But the bottom line is, you want to know which one is better.
+In frequentist statistics, one often uses the Akaike information criterion or AIC.
+There are two information criterion that may be used for Bayesian models.
+There is also the concept of a Bayes factor, which calculates support for one model over another.&lt;/p&gt;
+&lt;p&gt;Topics discussed here are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deviance information criterion (DIC)&lt;/li&gt;
+&lt;li&gt;Wantanabe Akaike information criterion (WAIC)&lt;/li&gt;
+&lt;li&gt;Bayes factors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;deviance-information-criterion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Deviance information criterion&lt;/h3&gt;
+&lt;p&gt;Like AIC, DIC is negative and smaller values are better.
+It’s kind of Bayesian in that it’s calculated across samples in the chain.
+However it’s not fully Bayesian in that it conditions on a point estimate, &lt;span class=&#34;math inline&#34;&gt;\(\hat\theta\)&lt;/span&gt;.
+(&lt;span class=&#34;math inline&#34;&gt;\(\hat\theta\)&lt;/span&gt; may be an average over part of your Markov chain or it might be the parameter estimate on the last iteration.)
+You can calculate it by&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  DIC &amp;amp;=
+    -2 \log \left(\mathcal{L}(X|\hat\theta)\right) + 2 P_{DIC}\\
+  \text{where}&amp;amp;\\
+  P_{DIC} &amp;amp;=
+    2\left(\mathcal{l}(X|\theta) - \frac{1}{B}\sum_{b = 1}^B\mathcal{l}(X|\theta^{(b)})\right)\\
+    &amp;amp;= 2 \text{var}(\mathcal{l}(X|\theta))
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{l}()\)&lt;/span&gt; is the log likelihood function and &lt;span class=&#34;math inline&#34;&gt;\(B\)&lt;/span&gt; is the number of samples.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wantanabe-akaike-information-criterion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Wantanabe Akaike information criterion&lt;/h3&gt;
+&lt;p&gt;WAIC is like AIC and DIC in that smaller is better.
+WAIC has the advantage of averaging over the posterior distribution rather than conditioning on a point estimate.
+You can caluclate it by&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  WAIC
+    &amp;amp;=
+    -2\text{lppd} + 2P_{WAIC}\\
+  &amp;amp;\text{where}\\
+  \text{lppd}
+    &amp;amp;=
+    \sum_{i = 1}^n \log\left(
+      \frac{1}{B}\sum_{b=1}^B \mathcal{L}(X|\theta^{(b)}\right)\\
+  &amp;amp;\text{and}\\
+  P_{WAIC}
+    &amp;amp;=
+    \sum_{i=1}^n \frac{1}{B-1}\sum_{b=1}^B \left(
+      \mathcal{l}(X_i|\theta^{(b)}) - \frac{1}{B}\sum_{b=1}^B \mathcal{l}(X_i|\theta^{(b)}\right)^2
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bayes-factors&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bayes Factors&lt;/h3&gt;
+&lt;p&gt;Bayes factors give you evidence for one model over another, specifically one posterior over another.
+i.e. for &lt;span class=&#34;math inline&#34;&gt;\(H_2\)&lt;/span&gt; over &lt;span class=&#34;math inline&#34;&gt;\(H_1\)&lt;/span&gt;, calculate&lt;span class=&#34;math inline&#34;&gt;\(\frac{P(H_2|X)}{P(H_1|X)} = \frac{H_2}{H_1}\times \text{BF}(H_2;H_1)\)&lt;/span&gt;.
+The goal when using Bayes Factors is to choose a single model &lt;span class=&#34;math inline&#34;&gt;\(H_i\)&lt;/span&gt; or average over a discrete set using their posterior probabilities.
+Bayes factors work well when the underlying model is truly discrete.&lt;/p&gt;
+&lt;p&gt;The Bayes factor of &lt;span class=&#34;math inline&#34;&gt;\(H_2\)&lt;/span&gt; over &lt;span class=&#34;math inline&#34;&gt;\(H_1\)&lt;/span&gt; is&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align}
+  \text{BF}(H_2;H_1)
+    &amp;amp;= \frac{P(X|H_2)}{P(X|H_1)}\\
+    &amp;amp;= \frac{\int P(\theta_2,X|H_2)d\theta_2}{\int P(\theta_1,X|H_1)d\theta_1}
+\end{align}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You can interpret the Bayes factor using the following:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;span class=&#34;math inline&#34;&gt;\(\textbf{BF}\boldsymbol{(H_2;H_1)}\)&lt;/span&gt;&lt;/th&gt;
+&lt;th&gt;Interpretation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(&amp;lt; 1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Supports &lt;span class=&#34;math inline&#34;&gt;\(H_1\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(1 - 3.2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Approximate evidence for &lt;span class=&#34;math inline&#34;&gt;\(H_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(H_2\)&lt;/span&gt; are the same&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(3.2 - 10\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Substantial support for &lt;span class=&#34;math inline&#34;&gt;\(H_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(10 - 31.6\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Strong support for &lt;span class=&#34;math inline&#34;&gt;\(H_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(31.6 - 100\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Very strong support for &lt;span class=&#34;math inline&#34;&gt;\(H_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(&amp;gt; 100\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Decisive support for &lt;span class=&#34;math inline&#34;&gt;\(H_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Bayes factors aren’t just a model comparison.
+They’re a type of Bayesian inference since you are using the posteriors of two models to find evidence supporting one over the other.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Intro to clustering</title>
