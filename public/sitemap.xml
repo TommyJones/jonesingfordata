@@ -3,47 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.jonesingfordata.com/post/2020-03-18-bayesian-model-evaluation/bayesian-model-evaluation/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/post/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
+    <loc>https://www.jonesingfordata.com/about/</loc>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.jonesingfordata.com/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/post/intro-to-clustering/</loc>
-    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/post/2020-02-11-svm-kernels/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/post/2020-02-09-review-of-svm-hastie/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jonesingfordata.com/about/</loc>
     <lastmod>2019-11-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -155,6 +120,10 @@
   <url>
     <loc>https://www.jonesingfordata.com/publication/conference-paper/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jonesingfordata.com/post/</loc>
   </url>
   
   <url>

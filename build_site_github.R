@@ -28,3 +28,4 @@ build_site_github <- function(...) {
   return()
 }
 
+build_site_github()
