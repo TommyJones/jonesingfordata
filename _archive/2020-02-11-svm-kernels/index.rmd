@@ -1,0 +1,70 @@
+---
+title: "Support vector machines and kernels"
+author: "Tommy Jones"
+date: "2020-02-10"
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: "`r format(Sys.time(), '%Y-%m-%d')`"
+featured: no
+disable_jquery: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+In my effort to [blog my way through the rest of my PhD](https://www.jonesingfordata.com/post/2020-02-08-blogging-through-my-phd/) and [study for comps](https://www.jonesingfordata.com/post/2020-02-08-comps-study-guide/), I present to you more on support vector machines.
+
+## Introduction
+
+As I said [last time](https://www.jonesingfordata.com/post/2020-02-09-review-of-svm-hastie/):
+There are two components to SVMs.
+
+1. The support vector classifier and
+2. Kernel methods
+
+The first post covered the support vector classifier and its estimation.
+In this post, I'm going to cover kernel methods for SVMs.
+
+## How do we get non-linearity from a linear classifier?
+
+With SVMs, the intuition of addressing non-linearity is similar to linear regression.
+Basically, you transform your right-hand-side variables in non-linear ways.
+Remember that for linear regression, if my RHS variable is $x$ but I want it to have a quadratic relationship to $y$, then I regress $x^2$ on $y$ instead of trying to figure out some sort of quadratic regression.
+The intuition with SVMs are the same: transform $x$ in a non-linear way, then use the linear support vector classifier on it.
+
+The intuition is the same, but of course it's more complicated with SVMs.
+
+## Step 1: transform your space transform your life
+
+We want to project our features $x$ from their original space, $\mathbb{R}^p$, to a new space, $\mathbb{R}^q$.
+And perhaps $q >> p$.
+We are going to do this with a function, $h$, such that $h: \mathbb{R}^p \mapsto \mathbb{R}^q$
+
+Then, we fit a linear classifier on $h(x)$ instead of $x$ like so:
+$f(x) = h(x)^T\beta + \beta_0$.
+
+Similar to the dual problem that we did in my last post we need to maximize
+
+<center>
+$L_D = \sum_{i=1}^N\alpha_i - \frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_j y_iy_j \langle h(x_i), h(x_j) \rangle$
+</center>
+
+where $\langle a, b \rangle$ represents the inner product between $a$ and $b$.
+
+Using the result from last time that $\beta = \sum_{i=1}^N\alpha_i y_i x_i$ and some substitution we see that
+
+\begin{align}
+  f(x) &= h(x)^T\beta + \beta_0\\
+       &= \sum_{i=1}^N \alpha_i y_i \langle h(x), h(x_i)\rangle + \beta_0
+\end{align}
+
+and we can solve for $\beta_0$ by solving $y_i f(x_i) = 1$ for all of the $x_i$ where $0 < \alpha_i < C$, or for the support vectors.
+
+## Step 2: what is a kernel?
+
+We can see that to solve this linear classifier with the projected data $h(x)$, we need the inner products $h(x)h(x)^T$.

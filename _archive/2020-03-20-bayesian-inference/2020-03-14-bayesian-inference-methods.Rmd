@@ -1,0 +1,34 @@
+---
+title: "Bayesian inference methods"
+author: "Tommy Jones"
+date: "2020-03-20"
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: "`r format(Sys.time(), '%Y-%m-%d')`"
+featured: no
+disable_jquery: no
+projects: []
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Posterior prediction
+
+# Credible intervals
+
+# Posterior probabilities & hypothesis testing
+
+
+
+
+
